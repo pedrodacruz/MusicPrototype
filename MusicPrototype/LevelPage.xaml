@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:MusicPrototype;assembly=MusicPrototype"
+             mc:Ignorable="d"
+             x:Class="MusicPrototype.LevelPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="plainButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#eee"/>
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="FontSize" Value="40" />
+            </Style>
+            <Style x:Key="darkerButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#ddd"/>
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="FontSize" Value="40" />
+            </Style>
+            <Style x:Key="orangeButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#E8AD00"/>
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="FontSize" Value="40" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="5, 10, 5, 0" />
+            <On Platform="Android, UWP" Value="5, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <!--<StackLayout>-->
+        <!--<Label Text="Welcome to Xamarin.Forms!"-->
+        <!--        VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />-->
+        <!-- uses a custom Extension defined in this project for now -->
+        <!--<Image Source="{local:ImageResource MusicPrototype.Images.Primeiro.jpg}" />-->
+        <!--<Button x:Name="btnPlay" Text="Play Sound"></Button>-->
+        <!-- </StackLayout> -->
+
+
+        
+        <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="100" />
+             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ImageButton Source="{local:ImageResource MusicPrototype.Images.Semibbreve.jpg}"
+                    Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"/>
+
+            <ImageButton Source="{local:ImageResource MusicPrototype.Images.Semibbreve.jpg}"
+                    Grid.Row="2" Grid.Column="0" HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"/>
+            <ImageButton Source="{local:ImageResource MusicPrototype.Images.Semibbreve.jpg}"
+                    Grid.Row="2" Grid.Column="1" HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"/>
+            <ImageButton Source="{local:ImageResource MusicPrototype.Images.Semibbreve.jpg}"
+                    Grid.Row="3" Grid.Column="0" HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"/>
+            <ImageButton Source="{local:ImageResource MusicPrototype.Images.Semibbreve.jpg}"
+                    Grid.Row="3" Grid.Column="1" HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
