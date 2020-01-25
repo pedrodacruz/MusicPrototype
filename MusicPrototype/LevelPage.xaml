@@ -50,29 +50,64 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="100" />
                 <RowDefinition Height="100" />
+                <RowDefinition Height="30" />
                 <RowDefinition Height="100" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="30" />
              </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <ImageButton Source="{local:ImageResource MusicPrototype.Images.Semibbreve.jpg}"
+            <ImageButton Source="{local:ImageResource MusicPrototype.Images.ActiveSemibreve.jpg}"
                     Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand"/>
+            <StackLayout Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="Center" Orientation="Horizontal">
+                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+            </StackLayout>
 
-            <ImageButton Source="{local:ImageResource MusicPrototype.Images.Semibbreve.jpg}"
-                    Grid.Row="2" Grid.Column="0" HorizontalOptions="Center"
-                    VerticalOptions="CenterAndExpand"/>
-            <ImageButton Source="{local:ImageResource MusicPrototype.Images.Semibbreve.jpg}"
-                    Grid.Row="2" Grid.Column="1" HorizontalOptions="Center"
-                    VerticalOptions="CenterAndExpand"/>
-            <ImageButton Source="{local:ImageResource MusicPrototype.Images.Semibbreve.jpg}"
+            <ImageButton Source="{local:ImageResource MusicPrototype.Images.InactiveSemibreve.jpg}"
                     Grid.Row="3" Grid.Column="0" HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand"/>
-            <ImageButton Source="{local:ImageResource MusicPrototype.Images.Semibbreve.jpg}"
+            <StackLayout Grid.Row="4" Grid.Column="0" HorizontalOptions="Center" Orientation="Horizontal">
+                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+            </StackLayout>
+            <ImageButton Source="{local:ImageResource MusicPrototype.Images.InactiveSemibreve.jpg}"
                     Grid.Row="3" Grid.Column="1" HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand"/>
+            <StackLayout Grid.Row="4" Grid.Column="1" HorizontalOptions="Center" Orientation="Horizontal">
+                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+            </StackLayout>
+            
+            <ImageButton Source="{local:ImageResource MusicPrototype.Images.InactiveSemibreve.jpg}"
+                    Grid.Row="5" Grid.Column="0" HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"/>
+            <StackLayout Grid.Row="6" Grid.Column="0" HorizontalOptions="Center" Orientation="Horizontal">
+                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+            </StackLayout>
+            <ImageButton Source="{local:ImageResource MusicPrototype.Images.InactiveSemibreve.jpg}"
+                    Grid.Row="5" Grid.Column="1" HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"/>
+            <StackLayout Grid.Row="6" Grid.Column="1"  HorizontalOptions="Center" Orientation="Horizontal">
+                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

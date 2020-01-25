@@ -28,7 +28,7 @@ namespace MusicPrototype
             //    VerticalOptions = LayoutOptions.Fill
             //};
 
-            MainPage = new PageInicial();
+            MainPage = new LevelPage();// PageInicial();
         }
 
         protected override void OnStart()

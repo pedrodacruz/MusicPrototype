@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MusicPrototype.OqueVoceOuve"
+             xmlns:local="clr-namespace:MusicPrototype;assembly=MusicPrototype">
+    <ContentPage.Content>
+        <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
+            <Grid.RowDefinitions>
+                <!--Botão Sair + Barra de progresso-->
+                <RowDefinition Height="20" />
+                <!--Titulo da Questão-->
+                <RowDefinition Height="20" />
+                <!--Botão para tocar o Som-->
+                <RowDefinition Height="100" />
+                <!--Botão 1 para escolher-->
+                <RowDefinition Height="30" />
+                <!--Botão 2 para escolher-->
+                <RowDefinition Height="30" />
+                <!--Botão 3 para escolher-->
+                <RowDefinition Height="30" />
+                <!--Botão 4 para escolher-->
+                <RowDefinition Height="30" />
+                <!--Botão para continuar-->
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
