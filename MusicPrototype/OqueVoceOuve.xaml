@@ -34,6 +34,10 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+            <ImageButton Source="{local:ImageResource MusicPrototype.Images.ExitButton.jpg}"
+                    Grid.Row="1" Grid.Column="1" HorizontalOptions="Center"
+                    VerticalOptions="Start"/>
+            <ProgressBar x:Name="progressLesson" Progress="0.1" Grid.Row="1" Grid.ColumnSpan="5" Grid.Column="2" ProgressColor="GreenYellow" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

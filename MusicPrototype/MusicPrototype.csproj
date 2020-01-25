@@ -15,6 +15,7 @@
     <None Remove="Images\ActiveSemibreve.jpg" />
     <None Remove="Images\ActiveSeminima.jpg" />
     <None Remove="Images\ActiveSeminimaPause.jpg" />
+    <None Remove="Images\ExitButton.jpg" />
     <None Remove="Images\InactiveSemibreve.jpg" />
     <None Remove="Images\InactiveSeminima.jpg" />
     <None Remove="Images\InactiveSeminimaPause.jpg" />
@@ -26,6 +27,7 @@
     <EmbeddedResource Include="Images\ActiveSemibreve.jpg" />
     <EmbeddedResource Include="Images\ActiveSeminima.jpg" />
     <EmbeddedResource Include="Images\ActiveSeminimaPause.jpg" />
+    <EmbeddedResource Include="Images\ExitButton.jpg" />
     <EmbeddedResource Include="Images\InactiveSemibreve.jpg" />
     <EmbeddedResource Include="Images\InactiveSeminima.jpg" />
     <EmbeddedResource Include="Images\InactiveSeminimaPause.jpg" />
