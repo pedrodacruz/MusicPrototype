@@ -65,7 +65,7 @@
             <Label Text="Escolha uma meta" Grid.Row="0" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" TextColor="Black"
         FontSize="20" Grid.ColumnSpan="4" x:Name="MetaText" />
 
-            <ListView SeparatorVisibility="None" VerticalOptions="Fill" x:Name="ListaMeta"
+            <!--<ListView SeparatorVisibility="None" VerticalOptions="Fill" x:Name="ListaMeta"
               ItemsSource="{x:Static local:Meta.All}" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="5" ItemSelected="ListaMeta_ItemSelected" HasUnevenRows="False">
                 <ListView.RowHeight>
                     <OnPlatform x:TypeArguments="x:Int32">
@@ -93,7 +93,29 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
+            </ListView>-->
+            <Grid x:Name="controlGrid2" RowSpacing="1" ColumnSpacing="1" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="5">
+                <Grid.RowDefinitions>
+                    <!--Botão 1 para escolher-->
+                    <RowDefinition Height="50" />
+                    <!--Botão 2 para escolher-->
+                    <RowDefinition Height="50" />
+                    <!--Botão 3 para escolher-->
+                    <RowDefinition Height="50" />
+                    <!--Botão 4 para escolher-->
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ImageButton Source="{local:ImageResource MusicPrototype.Images.ExitButton.jpg}"
+                    Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Start"/>
+                <Button x:Name="btn5minutos" Text="5 minutos/ dia"  Grid.Row="0" BackgroundColor="Gray" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnMeta_Clicked"></Button>
+                <Button x:Name="btn10minutos" Text="10 minutos/ dia"  Grid.Row="1" BackgroundColor="Gray" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnMeta_Clicked"></Button>
+                <Button x:Name="btn15minutos" Text="15 minutos/ dia"  Grid.Row="2" BackgroundColor="Gray" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnMeta_Clicked"></Button>
+                <Button x:Name="btn20minutos" Text="20 minutos/ dia"  Grid.Row="3" BackgroundColor="Gray" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnMeta_Clicked"></Button>
+            </Grid>
             <Image Source="{local:ImageResource MusicPrototype.Images.Primeiro.jpg}"  Grid.Row="3" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalOptions="Fill"/>
             <Label Text="Você pode mudar sua meta quando quiser" Grid.Row="3" HorizontalOptions="Fill" VerticalTextAlignment="End" TextColor="Black"
         FontSize="20" Grid.ColumnSpan="2" Grid.Column="3" Grid.RowSpan="2"/>

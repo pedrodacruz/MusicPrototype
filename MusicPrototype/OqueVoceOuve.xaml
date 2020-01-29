@@ -12,19 +12,19 @@
                 <!--Botão Sair + Barra de progresso-->
                 <RowDefinition Height="20" />
                 <!--Titulo da Questão-->
-                <RowDefinition Height="20" />
-                <!--Botão para tocar o Som-->
                 <RowDefinition Height="100" />
+                <!--Botão para tocar o Som-->
+                <RowDefinition Height="200" />
                 <!--Botão 1 para escolher-->
-                <RowDefinition Height="30" />
+                <RowDefinition Height="50" />
                 <!--Botão 2 para escolher-->
-                <RowDefinition Height="30" />
+                <RowDefinition Height="50" />
                 <!--Botão 3 para escolher-->
-                <RowDefinition Height="30" />
+                <RowDefinition Height="50" />
                 <!--Botão 4 para escolher-->
-                <RowDefinition Height="30" />
+                <RowDefinition Height="50" />
                 <!--Botão para continuar-->
-                <RowDefinition Height="30" />
+                <RowDefinition Height="50" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -35,9 +35,18 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <ImageButton Source="{local:ImageResource MusicPrototype.Images.ExitButton.jpg}"
-                    Grid.Row="1" Grid.Column="1" HorizontalOptions="Center"
+                    Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand"
                     VerticalOptions="Start"/>
-            <ProgressBar x:Name="progressLesson" Progress="0.1" Grid.Row="1" Grid.ColumnSpan="5" Grid.Column="2" ProgressColor="GreenYellow" />
+            <ProgressBar x:Name="progressLesson" Progress="0.1" Grid.Row="0" Grid.ColumnSpan="5" Grid.Column="1" ProgressColor="GreenYellow" />
+            <Label Text="Escreva o que escutar" Grid.Row="1" Grid.ColumnSpan="6" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="Large"/>
+            <ImageButton Source="{local:ImageResource MusicPrototype.Images.SomButton.jpg}"
+                    Grid.Row="2" Grid.Column="0" HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="6" 
+                    VerticalOptions="Center" Clicked="ImageButton_Clicked"/>
+            <Button x:Name="btnButton1" Text="Som Musical"  Grid.Row="3" Grid.ColumnSpan="6" BackgroundColor="Red" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS"></Button>
+            <Button x:Name="btnButton2" Text="Som Não-Musical"  Grid.Row="4" Grid.ColumnSpan="6" BackgroundColor="Red" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS"></Button>
+            <Button x:Name="btnButton3" Text="Som Não-Musical"  Grid.Row="5" Grid.ColumnSpan="6" IsVisible="False" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS"></Button>
+            <Button x:Name="btnButton4" Text="Som Não-Musical"  Grid.Row="6" Grid.ColumnSpan="6" IsVisible="False" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS"></Button>
+            <Button x:Name="btnButton5" Text="Continuar"  Grid.Row="7" Grid.ColumnSpan="6" BackgroundColor="Red" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS"></Button>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

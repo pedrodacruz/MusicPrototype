@@ -36,7 +36,7 @@ namespace MusicPrototype
 
         private void BtnPlay_Clicked(object sender, EventArgs e)
         {
-            playerData.Meta = ListaMeta.SelectedItem;
+            //playerData.Meta = ListaMeta.SelectedItem;
             Save();
             player.Play();
 
@@ -68,7 +68,9 @@ namespace MusicPrototype
 
                 //Pega a informação 
                 this.playerData.Meta = data.Meta;
-               
+
+                if (this.playerData.Meta != null)
+                    ((Button)this.FindByName(this.playerData.Meta)).BackgroundColor = Color.Black;
             }
 
         }
@@ -89,21 +91,22 @@ namespace MusicPrototype
 
             //Gravação do arquivo jason no destino
             File.WriteAllText(destination, dataAsJson);
-
-   
-
         }
 
-        private void ListaMeta_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void btnMeta_Clicked(object sender, EventArgs e)
         {
+            btn10minutos.BackgroundColor = btn15minutos.BackgroundColor = btn20minutos.BackgroundColor = btn5minutos.BackgroundColor = Color.Gray;
+            ((Button)sender).BackgroundColor = Color.Black;
 
+            this.playerData.Meta = ((Button)sender).StyleId;
         }
+
     }
 
     //Classe criada para armazenar as informações do jogo
     [System.Serializable]
     public class PlayerData
     {
-        public object Meta;
+        public string Meta;
     }
 }
