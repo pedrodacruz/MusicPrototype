@@ -54,40 +54,40 @@
             <Image Source="{local:ImageResource MusicPrototype.Images.BarraVertical.jpg}"
                     Grid.Row="5" Grid.Column="1" HorizontalOptions="CenterAndExpand" 
                     VerticalOptions="Center" />
-            <Image Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
+            <Image x:Name="linha1" Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
                     Grid.Row="4" Grid.Column="1" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3"
-                    VerticalOptions="Center" />
+                    VerticalOptions="Center" IsVisible="False"/>
             <Image Source="{local:ImageResource MusicPrototype.Images.BarraVertical.jpg}"
                     Grid.Row="5" Grid.Column="3" HorizontalOptions="CenterAndExpand" 
                     VerticalOptions="Center" />
-            <Image Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
+            <Image x:Name="linha2" Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
                     Grid.Row="4" Grid.Column="3" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3" 
-                    VerticalOptions="Center" />
+                    VerticalOptions="Center" IsVisible="False"/>
             <Image Source="{local:ImageResource MusicPrototype.Images.BarraVertical.jpg}"
                     Grid.Row="5" Grid.Column="5" HorizontalOptions="CenterAndExpand" 
                     VerticalOptions="Center" />
-            <Image Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
+            <Image x:Name="linha3" Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
                     Grid.Row="4" Grid.Column="5" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3" 
-                    VerticalOptions="Center" />
+                    VerticalOptions="Center" IsVisible="False"/>
             <Image Source="{local:ImageResource MusicPrototype.Images.BarraVertical.jpg}"
                     Grid.Row="5" Grid.Column="7" HorizontalOptions="CenterAndExpand" 
                     VerticalOptions="Center" />
-            <Image Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
+            <Image x:Name="linha4" Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
                     Grid.Row="4" Grid.Column="7" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3" 
-                    VerticalOptions="Center" />
+                    VerticalOptions="Center" IsVisible="False"/>
             <Image Source="{local:ImageResource MusicPrototype.Images.BarraVertical.jpg}"
                     Grid.Row="5" Grid.Column="9" HorizontalOptions="CenterAndExpand"
                     VerticalOptions="Center" />
-            <Image Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
+            <Image x:Name="linha5" Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
                     Grid.Row="4" Grid.Column="9" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3" 
-                    VerticalOptions="Center" />
+                    VerticalOptions="Center" IsVisible="False"/>
             <Image Source="{local:ImageResource MusicPrototype.Images.BarraVertical.jpg}"
                     Grid.Row="5" Grid.Column="11" HorizontalOptions="CenterAndExpand"
                     VerticalOptions="Center" />
             <Image Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
                     Grid.Row="6" Grid.Column="1" HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="13" 
                     VerticalOptions="Center" />
-            <Button x:Name="btnButton5" HorizontalOptions="Fill"  Text="Continuar"  Grid.Row="7" Grid.ColumnSpan="14"  BackgroundColor="Red" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS"></Button>
+            <Button x:Name="btnButton5" HorizontalOptions="Fill"  Text="Continuar"  Grid.Row="8" Grid.ColumnSpan="14"  BackgroundColor="Red" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS"></Button>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
