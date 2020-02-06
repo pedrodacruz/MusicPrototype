@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MusicPrototype.QualANota"
+             xmlns:local="clr-namespace:MusicPrototype;assembly=MusicPrototype">
+    <ContentPage.Content>
+        <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
+            <Grid.RowDefinitions>
+                <!--Botão Sair + Barra de progresso-->
+                <RowDefinition Height="20" />
+                <!--Titulo da Questão-->
+                <RowDefinition Height="100" />
+                <!--Botão para tocar o Som-->
+                <RowDefinition Height="200" />
+                <!--Botão 1 para escolher-->
+                <RowDefinition Height="50" />
+                <!--Botão 2 para escolher-->
+                <RowDefinition Height="50" />
+                <!--Botão 3 para escolher-->
+                <RowDefinition Height="50" />
+                <!--Botão 4 para escolher-->
+                <RowDefinition Height="50" />
+                <!--Botão para continuar-->
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ImageButton Source="{local:ImageResource MusicPrototype.Images.ExitButton.jpg}"
+                    Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Start"/>
+            <ProgressBar x:Name="progressLesson" Progress="0.1" Grid.Row="0" Grid.ColumnSpan="5" Grid.Column="1" ProgressColor="GreenYellow" />
+            <Label Text="Identifique a nota musical" Grid.Row="1" Grid.ColumnSpan="6" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="Large"/>
+            <ImageButton Source="{local:ImageResource MusicPrototype.Images.SomButton.jpg}"
+                    Grid.Row="2" Grid.Column="0" HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="6" 
+                    VerticalOptions="Center" />
+            <Button x:Name="btnDo"  Text="Dó"  Grid.Row="5" Grid.Column="0"  BackgroundColor="Red" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS"></Button>
+            <Button x:Name="btnRe"  Text="Ré"  Grid.Row="5" Grid.Column="1" BackgroundColor="Red" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS"></Button>
+            <Button x:Name="btnMi"  Text="Mi"  Grid.Row="5" Grid.Column="2" BackgroundColor="Red" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS"></Button>
+            <Button x:Name="btnFa"  Text="Fá"  Grid.Row="5" Grid.Column="3" BackgroundColor="Red"  TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS"></Button>
+            <Button x:Name="btnSol" Text="Sol"  Grid.Row="5" Grid.Column="4" BackgroundColor="Red"  TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS"></Button>
+            <Button x:Name="btnLa"  Text="Lá"  Grid.Row="5"  Grid.Column="5" BackgroundColor="Red"  TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS"></Button>
+            <Button x:Name="btnSi"  Text="Sí"  Grid.Row="6" Grid.Column="5" BackgroundColor="Red"  TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS"></Button>
+            <Button x:Name="btnButton5" Text="Continuar"  Grid.Row="7" Grid.ColumnSpan="6" BackgroundColor="Red" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS"></Button>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

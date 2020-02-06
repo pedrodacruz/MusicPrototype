@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MusicPrototype.Ditado"
+             xmlns:local="clr-namespace:MusicPrototype;assembly=MusicPrototype">
+    <ContentPage.Content>
+        <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
+            <Grid.RowDefinitions>
+                <!--Botão Sair + Barra de progresso-->
+                <RowDefinition Height="20" />
+                <!--Titulo da Questão-->
+                <RowDefinition Height="100" />
+          
+                <RowDefinition Height="200" />
+
+                <RowDefinition Height="50" />
+
+                <RowDefinition Height="10" />
+                
+                <RowDefinition Height="50" />
+                
+                <RowDefinition Height="50" />
+               
+                <RowDefinition Height="50" />
+              
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ImageButton Source="{local:ImageResource MusicPrototype.Images.ExitButton.jpg}"
+                    Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Start"/>
+            <ProgressBar x:Name="progressLesson" Progress="0.1" Grid.Row="0" Grid.ColumnSpan="12"  Grid.Column="1" ProgressColor="GreenYellow" />
+            <Label Text="Posicione a barra de acordo com a linhagem musical" Grid.Row="1" Grid.ColumnSpan="13" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="Large"/>
+            <ImageButton Source="{local:ImageResource MusicPrototype.Images.SomButton.jpg}"
+                    Grid.Row="2" Grid.Column="0" HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="13" 
+                    VerticalOptions="Center" />
+            <Image Source="{local:ImageResource MusicPrototype.Images.BarraVertical.jpg}"
+                    Grid.Row="5" Grid.Column="1" HorizontalOptions="CenterAndExpand" 
+                    VerticalOptions="Center" />
+            <Image Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
+                    Grid.Row="4" Grid.Column="1" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3"
+                    VerticalOptions="Center" />
+            <Image Source="{local:ImageResource MusicPrototype.Images.BarraVertical.jpg}"
+                    Grid.Row="5" Grid.Column="3" HorizontalOptions="CenterAndExpand" 
+                    VerticalOptions="Center" />
+            <Image Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
+                    Grid.Row="4" Grid.Column="3" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3" 
+                    VerticalOptions="Center" />
+            <Image Source="{local:ImageResource MusicPrototype.Images.BarraVertical.jpg}"
+                    Grid.Row="5" Grid.Column="5" HorizontalOptions="CenterAndExpand" 
+                    VerticalOptions="Center" />
+            <Image Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
+                    Grid.Row="4" Grid.Column="5" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3" 
+                    VerticalOptions="Center" />
+            <Image Source="{local:ImageResource MusicPrototype.Images.BarraVertical.jpg}"
+                    Grid.Row="5" Grid.Column="7" HorizontalOptions="CenterAndExpand" 
+                    VerticalOptions="Center" />
+            <Image Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
+                    Grid.Row="4" Grid.Column="7" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3" 
+                    VerticalOptions="Center" />
+            <Image Source="{local:ImageResource MusicPrototype.Images.BarraVertical.jpg}"
+                    Grid.Row="5" Grid.Column="9" HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Center" />
+            <Image Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
+                    Grid.Row="4" Grid.Column="9" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3" 
+                    VerticalOptions="Center" />
+            <Image Source="{local:ImageResource MusicPrototype.Images.BarraVertical.jpg}"
+                    Grid.Row="5" Grid.Column="11" HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Center" />
+            <Image Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
+                    Grid.Row="6" Grid.Column="1" HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="13" 
+                    VerticalOptions="Center" />
+            <Button x:Name="btnButton5" HorizontalOptions="Fill"  Text="Continuar"  Grid.Row="7" Grid.ColumnSpan="14"  BackgroundColor="Red" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS"></Button>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
