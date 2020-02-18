@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="MusicPrototype.Ditado"
-             xmlns:local="clr-namespace:MusicPrototype;assembly=MusicPrototype"
              xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
              xmlns:tt="clr-namespace:TouchTracking"
+             x:Class="MusicPrototype.Ditado"
+             xmlns:local="clr-namespace:MusicPrototype"
+
              >
     <ContentPage.Content>
         <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
+
+            
             <Grid.RowDefinitions>
                 <!--Botão Sair + Barra de progresso-->
                 <RowDefinition Height="20" />
@@ -31,6 +31,7 @@
               
                 <RowDefinition Height="100" />
             </Grid.RowDefinitions>
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -46,30 +47,36 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-
-            <Picker Title="Touch Mode"
-                Grid.Row="0"
-                SelectedIndexChanged="OnTouchModePickerSelectedIndexChanged">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type local:TouchManipulationMode}">
-                        <x:Static Member="local:TouchManipulationMode.None" />
-                        <x:Static Member="local:TouchManipulationMode.PanOnly" />
-                        <x:Static Member="local:TouchManipulationMode.IsotropicScale" />
-                        <x:Static Member="local:TouchManipulationMode.AnisotropicScale" />
-                        <x:Static Member="local:TouchManipulationMode.ScaleRotate" />
-                        <x:Static Member="local:TouchManipulationMode.ScaleDualRotate" />
-                    </x:Array>
-                </Picker.ItemsSource>
-                <Picker.SelectedIndex>
-                    4
-                </Picker.SelectedIndex>
-            </Picker>
             
+            <!--<Grid.Effects>
+                <tt:TouchEffect Capture="True"
+                                TouchAction="OnTouchEffectAction" />
+            </Grid.Effects>
+
+            <skia:SKCanvasView x:Name="canvasView"  Grid.Row="6" Grid.Column="1" HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="13" 
+                               PaintSurface="OnCanvasViewPaintSurface" VerticalOptions="Center" />-->
+            <Grid BackgroundColor="White"
+             Grid.Row="6" Grid.Column="1" HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="13"  >
+                <Grid.Effects>
+                    <tt:TouchEffect Capture="True"
+                                TouchAction="OnTouchEffectAction" />
+                </Grid.Effects>
+                <skia:SKCanvasView x:Name="canvasView"
+                               PaintSurface="OnCanvasViewPaintSurface" />
+
+            </Grid>
+
             <ImageButton Source="{local:ImageResource MusicPrototype.Images.ExitButton.jpg}"
                     Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand"
                     VerticalOptions="Start"/>
             
+            
+            
             <ProgressBar x:Name="progressLesson" Progress="0.1" Grid.Row="0" Grid.ColumnSpan="12"  Grid.Column="1" ProgressColor="GreenYellow" />
+            
+            
+            
+            
             <Label Text="Posicione a barra de acordo com a linhagem musical" Grid.Row="1" Grid.ColumnSpan="13" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="Large"/>
             <ImageButton Source="{local:ImageResource MusicPrototype.Images.SomButton.jpg}"
                     Grid.Row="2" Grid.Column="0" HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="13" 
@@ -107,17 +114,12 @@
             <Image Source="{local:ImageResource MusicPrototype.Images.BarraVertical.jpg}"
                     Grid.Row="5" Grid.Column="11" HorizontalOptions="CenterAndExpand"
                     VerticalOptions="Center" />
-            <Image Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
+            <!--<Image Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
                     Grid.Row="6" Grid.Column="1" HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="13" 
-                    VerticalOptions="Center" />
+                    VerticalOptions="Center" />-->
             <Button x:Name="btnButton5" HorizontalOptions="Fill"  Text="Continuar"  Grid.Row="8" Grid.ColumnSpan="14"  BackgroundColor="Red" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS"></Button>
 
-            <skia:SKCanvasView x:Name="canvasView"
-                               PaintSurface="OnCanvasViewPaintSurface" />
-            <Grid.Effects>
-                <tt:TouchEffect Capture="True"
-                                TouchAction="OnTouchEffectAction" />
-            </Grid.Effects>
+            
         </Grid>
     </ContentPage.Content>
 </ContentPage>

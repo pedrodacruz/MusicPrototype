@@ -1,7 +1,8 @@
 ﻿using System;
 using SkiaSharp;
+using TouchTracking;
 
-namespace TouchTracking
+namespace MusicPrototype
 {
     public class TouchPoint
     {

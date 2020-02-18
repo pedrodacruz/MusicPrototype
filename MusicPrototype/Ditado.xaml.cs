@@ -1,21 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using Xamarin.Forms;
-
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
 using TouchTracking;
 
-using System.Linq;
-using System.Collections.Generic;
-
-using Xamarin.Forms.Xaml;
-using System.Reflection;
-using System.IO;
 
 namespace MusicPrototype
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Ditado : ContentPage
+     public partial class Ditado : ContentPage
     {
         TouchManipulationBitmap bitmap;
         List<long> touchIds = new List<long>();
@@ -31,16 +26,7 @@ namespace MusicPrototype
             {
                 SKBitmap bitmap = SKBitmap.Decode(stream);
                 this.bitmap = new TouchManipulationBitmap(bitmap);
-                this.bitmap.TouchManager.Mode = TouchManipulationMode.ScaleRotate;
-            }
-        }
-
-        void OnTouchModePickerSelectedIndexChanged(object sender, EventArgs args)
-        {
-            if (bitmap != null)
-            {
-                Picker picker = (Picker)sender;
-                bitmap.TouchManager.Mode = (TouchManipulationMode)picker.SelectedItem;
+                this.bitmap.TouchManager.Mode = TouchManipulationMode.PanOnly;
             }
         }
 

@@ -3,7 +3,7 @@ using Xamarin.Forms;
 
 namespace TouchTracking
 {
-    public class TouchActionEventArgs
+    public class TouchActionEventArgs : EventArgs
     {
         public TouchActionEventArgs(long id, TouchActionType type, Point location, bool isInContact)
         {
