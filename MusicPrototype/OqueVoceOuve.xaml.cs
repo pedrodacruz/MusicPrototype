@@ -1,11 +1,7 @@
 ﻿using Plugin.SimpleAudioPlayer;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,6 +12,7 @@ namespace MusicPrototype
     public partial class OqueVoceOuve : ContentPage
     {
         ISimpleAudioPlayer player;
+        string resposta;
         public OqueVoceOuve()
         {
             player = CrossSimpleAudioPlayer.Current;
@@ -41,6 +38,36 @@ namespace MusicPrototype
         {
             player.Play();
 
+        }
+
+        private void btnButton5_Clicked(object sender, EventArgs e)
+        {
+            if (ValidaResposta())
+            {
+                lblResultado.Text = "Correto!!!";
+                stcResult.BackgroundColor = Color.LightGreen;
+            }
+            else
+            {
+                lblResultado.Text = "Incorreto...";
+                stcResult.BackgroundColor = Color.PaleVioletRed;
+            }
+            btnButton5.Text = "Coninuar";
+        }
+
+        private bool ValidaResposta()
+        {
+            if(resposta== "btnButton2")
+                return true;
+            else
+                return false;
+        }
+
+        private void btnButton_Clicked(object sender, EventArgs e)
+        {
+            btnButton1.BackgroundColor = btnButton2.BackgroundColor = btnButton3.BackgroundColor = btnButton4.BackgroundColor = Color.Gray;
+            ((Button)sender).BackgroundColor = Color.Red;
+            resposta = ((Button)sender).StyleId;
         }
     }
 }

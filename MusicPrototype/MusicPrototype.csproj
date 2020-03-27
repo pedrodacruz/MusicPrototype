@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Audio\Licao1.wav" />
     <None Remove="Audio\NaoMusical.wav" />
     <None Remove="Images\ActiveSemibreve.jpg" />
     <None Remove="Images\ActiveSeminima.jpg" />
@@ -26,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Audio\Licao1.wav" />
     <EmbeddedResource Include="Audio\NaoMusical.wav" />
     <EmbeddedResource Include="Images\ActiveSemibreve.jpg" />
     <EmbeddedResource Include="Images\ActiveSeminima.jpg" />
