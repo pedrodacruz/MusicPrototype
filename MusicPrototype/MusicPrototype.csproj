@@ -22,6 +22,18 @@
     <None Remove="Images\InactiveSemibreve.jpg" />
     <None Remove="Images\InactiveSeminima.jpg" />
     <None Remove="Images\InactiveSeminimaPause.jpg" />
+    <None Remove="Images\Notas\DoClaveSol.jpg" />
+    <None Remove="Images\Notas\DoGraveClaveSol.jpg" />
+    <None Remove="Images\Notas\FaClaveSol.jpg" />
+    <None Remove="Images\Notas\FaMedioClaveSol.jpg" />
+    <None Remove="Images\Notas\LaClaveSol.jpg" />
+    <None Remove="Images\Notas\MiClaveSol.jpg" />
+    <None Remove="Images\Notas\MiMedioClaveSol.jpg" />
+    <None Remove="Images\Notas\ReClaveSol.jpg" />
+    <None Remove="Images\Notas\ReGraveClaveSol.jpg" />
+    <None Remove="Images\Notas\SiClaveSol.jpg" />
+    <None Remove="Images\Notas\SolAgudoClaveSol.jpg" />
+    <None Remove="Images\Notas\SolClaveSol.jpg" />
     <None Remove="Images\Primeiro.jpg" />
     <None Remove="Images\SomButton.jpg" />
   </ItemGroup>
@@ -38,6 +50,18 @@
     <EmbeddedResource Include="Images\InactiveSemibreve.jpg" />
     <EmbeddedResource Include="Images\InactiveSeminima.jpg" />
     <EmbeddedResource Include="Images\InactiveSeminimaPause.jpg" />
+    <EmbeddedResource Include="Images\Notas\DoClaveSol.jpg" />
+    <EmbeddedResource Include="Images\Notas\DoGraveClaveSol.jpg" />
+    <EmbeddedResource Include="Images\Notas\FaClaveSol.jpg" />
+    <EmbeddedResource Include="Images\Notas\FaMedioClaveSol.jpg" />
+    <EmbeddedResource Include="Images\Notas\LaClaveSol.jpg" />
+    <EmbeddedResource Include="Images\Notas\MiClaveSol.jpg" />
+    <EmbeddedResource Include="Images\Notas\MiMedioClaveSol.jpg" />
+    <EmbeddedResource Include="Images\Notas\ReClaveSol.jpg" />
+    <EmbeddedResource Include="Images\Notas\ReGraveClaveSol.jpg" />
+    <EmbeddedResource Include="Images\Notas\SiClaveSol.jpg" />
+    <EmbeddedResource Include="Images\Notas\SolAgudoClaveSol.jpg" />
+    <EmbeddedResource Include="Images\Notas\SolClaveSol.jpg" />
     <EmbeddedResource Include="Images\Primeiro.jpg" />
     <EmbeddedResource Include="Images\SomButton.jpg" />
   </ItemGroup>
