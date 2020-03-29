@@ -13,7 +13,7 @@ namespace MusicPrototype
     public partial class PageInicial : ContentPage
     {
         ISimpleAudioPlayer player;
-        PlayerData playerData = new PlayerData();
+        //PlayerData playerData = new PlayerData();
         public PageInicial()
         {
             player = CrossSimpleAudioPlayer.Current;
@@ -29,9 +29,7 @@ namespace MusicPrototype
             Load();
 
             btnPlay.Clicked += BtnPlay_Clicked;
-
-            if(this.playerData.Meta!=null)
-            MetaText.Text = this.playerData.Meta.ToString();
+            InputName.Text = Singleton.Instance.dadosJogador.Nome;
         }
 
         private void BtnPlay_Clicked(object sender, EventArgs e)
@@ -67,10 +65,11 @@ namespace MusicPrototype
                 PlayerData data = JsonConvert.DeserializeObject<PlayerData>(dataAsJson);
 
                 //Pega a informação 
-                this.playerData.Meta = data.Meta;
+                Singleton.Instance.dadosJogador.Meta = data.Meta;
+                Singleton.Instance.dadosJogador.Nome = data.Nome;
 
-                if (this.playerData.Meta != null)
-                    ((Button)this.FindByName(this.playerData.Meta)).BackgroundColor = Color.Black;
+                if (Singleton.Instance.dadosJogador.Meta != null)
+                    ((Button)this.FindByName(Singleton.Instance.dadosJogador.Meta)).BackgroundColor = Color.Black;
             }
 
         }
@@ -84,7 +83,8 @@ namespace MusicPrototype
             //Instancia da classe de dados
             PlayerData data = new PlayerData();
 
-            data.Meta = this.playerData.Meta;
+            data.Meta = Singleton.Instance.dadosJogador.Meta;
+            data.Nome = this.InputName.Text.ToString();
  
             //Obtenção do texto a partir da classe jason
             string dataAsJson = JsonConvert.SerializeObject(data);
@@ -98,15 +98,10 @@ namespace MusicPrototype
             btn10minutos.BackgroundColor = btn15minutos.BackgroundColor = btn20minutos.BackgroundColor = btn5minutos.BackgroundColor = Color.Gray;
             ((Button)sender).BackgroundColor = Color.Black;
 
-            this.playerData.Meta = ((Button)sender).StyleId;
+            Singleton.Instance.dadosJogador.Meta = ((Button)sender).StyleId;
         }
 
     }
 
-    //Classe criada para armazenar as informações do jogo
-    [System.Serializable]
-    public class PlayerData
-    {
-        public string Meta;
-    }
+
 }

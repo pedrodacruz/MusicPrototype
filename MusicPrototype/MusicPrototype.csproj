@@ -22,6 +22,7 @@
     <None Remove="Images\InactiveSemibreve.jpg" />
     <None Remove="Images\InactiveSeminima.jpg" />
     <None Remove="Images\InactiveSeminimaPause.jpg" />
+    <None Remove="Images\NaMoscaBadge.jpg" />
     <None Remove="Images\Notas\DoClaveSol.jpg" />
     <None Remove="Images\Notas\DoGraveClaveSol.jpg" />
     <None Remove="Images\Notas\FaClaveSol.jpg" />
@@ -35,6 +36,8 @@
     <None Remove="Images\Notas\SolAgudoClaveSol.jpg" />
     <None Remove="Images\Notas\SolClaveSol.jpg" />
     <None Remove="Images\Primeiro.jpg" />
+    <None Remove="Images\ProfileIcon.jpg" />
+    <None Remove="Images\settings.jpg" />
     <None Remove="Images\SomButton.jpg" />
   </ItemGroup>
 
@@ -50,6 +53,7 @@
     <EmbeddedResource Include="Images\InactiveSemibreve.jpg" />
     <EmbeddedResource Include="Images\InactiveSeminima.jpg" />
     <EmbeddedResource Include="Images\InactiveSeminimaPause.jpg" />
+    <EmbeddedResource Include="Images\NaMoscaBadge.jpg" />
     <EmbeddedResource Include="Images\Notas\DoClaveSol.jpg" />
     <EmbeddedResource Include="Images\Notas\DoGraveClaveSol.jpg" />
     <EmbeddedResource Include="Images\Notas\FaClaveSol.jpg" />
@@ -63,6 +67,8 @@
     <EmbeddedResource Include="Images\Notas\SolAgudoClaveSol.jpg" />
     <EmbeddedResource Include="Images\Notas\SolClaveSol.jpg" />
     <EmbeddedResource Include="Images\Primeiro.jpg" />
+    <EmbeddedResource Include="Images\ProfileIcon.jpg" />
+    <EmbeddedResource Include="Images\settings.jpg" />
     <EmbeddedResource Include="Images\SomButton.jpg" />
   </ItemGroup>
 
@@ -74,6 +80,12 @@
     <PackageReference Include="Xam.Plugin.SimpleAudioPlayer" Version="1.3.1" />
     <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Perfil.xaml.cs">
+      <DependentUpon>Perfil.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

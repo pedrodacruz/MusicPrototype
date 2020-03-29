@@ -37,19 +37,11 @@
     </ContentPage.Padding>
     
     <ContentPage.Content>
-        <!--<StackLayout>-->
-        <!--<Label Text="Welcome to Xamarin.Forms!"-->
-        <!--        VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />-->
-        <!-- uses a custom Extension defined in this project for now -->
-        <!--<Image Source="{local:ImageResource MusicPrototype.Images.Primeiro.jpg}" />-->
-            <!--<Button x:Name="btnPlay" Text="Play Sound"></Button>-->
-       <!-- </StackLayout> -->
-        
-        
-        <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
+         <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="40" />
@@ -62,39 +54,14 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Label Text="Escolha uma meta" Grid.Row="0" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" TextColor="Black"
-        FontSize="20" Grid.ColumnSpan="4" x:Name="MetaText" />
-
-            <!--<ListView SeparatorVisibility="None" VerticalOptions="Fill" x:Name="ListaMeta"
-              ItemsSource="{x:Static local:Meta.All}" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="5" ItemSelected="ListaMeta_ItemSelected" HasUnevenRows="False">
-                <ListView.RowHeight>
-                    <OnPlatform x:TypeArguments="x:Int32">
-                        <On Platform="iOS, Android" Value="50" />
-                        <On Platform="UWP" Value="50" />
-                    </OnPlatform>
-                </ListView.RowHeight>
-
-                <ListView.ItemTemplate>
-                    <DataTemplate >
-                        <ViewCell>
-                            <ContentView Padding="0">
-                                <Frame OutlineColor="Accent"
-                               Padding="5">
-                                    <StackLayout Orientation="Horizontal">
-                                            <Label Text="{Binding FriendlyName}"
-                                           FontSize="22"
-                                           HorizontalOptions="Start" />
-                                            <Label Text="{Binding Name}"
-                                           FontSize="16"
-                                           HorizontalOptions="EndAndExpand" />
-                                    </StackLayout>
-                                </Frame>
-                            </ContentView>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>-->
-            <Grid x:Name="controlGrid2" RowSpacing="1" ColumnSpacing="1" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="5">
+            <ImageButton Source="{local:ImageResource MusicPrototype.Images.ExitButton.jpg}"
+                    Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Start"/>
+            <Label Text="Digite seu nome:" HorizontalTextAlignment="Start" TextColor="Black" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" x:Name="lblnome" FontSize="Large" FontFamily="Comic Sans MS" />
+            <Entry x:Name="InputName" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" TextColor="Black"  FontFamily="Comic Sans MS"  FontSize="Large"></Entry>
+            <Label Text="Escolha uma meta" HorizontalTextAlignment="Start" TextColor="Black" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" x:Name="lblMeta" FontSize="Large" FontFamily="Comic Sans MS" />
+             
+                <Grid x:Name="controlGrid2" RowSpacing="1" ColumnSpacing="1" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="5">
                 <Grid.RowDefinitions>
                     <!--Botão 1 para escolher-->
                     <RowDefinition Height="50" />
@@ -116,10 +83,10 @@
                 <Button x:Name="btn15minutos" Text="15 minutos/ dia"  Grid.Row="2" BackgroundColor="Gray" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnMeta_Clicked"></Button>
                 <Button x:Name="btn20minutos" Text="20 minutos/ dia"  Grid.Row="3" BackgroundColor="Gray" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnMeta_Clicked"></Button>
             </Grid>
-            <Image Source="{local:ImageResource MusicPrototype.Images.Primeiro.jpg}"  Grid.Row="3" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalOptions="Fill"/>
-            <Label Text="Você pode mudar sua meta quando quiser" Grid.Row="3" HorizontalOptions="Fill" VerticalTextAlignment="End" TextColor="Black"
+            <Image Source="{local:ImageResource MusicPrototype.Images.Primeiro.jpg}"  Grid.Row="5" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalOptions="Fill"/>
+            <Label Text="Você pode mudar sua meta quando quiser" Grid.Row="5" HorizontalOptions="Fill" VerticalTextAlignment="End" TextColor="Black"
         FontSize="20" Grid.ColumnSpan="2" Grid.Column="3" Grid.RowSpan="2"/>
-            <Button x:Name="btnPlay" Text="Play Sound"  Grid.Row="5" Grid.ColumnSpan="5"></Button>
+            <Button x:Name="btnPlay" Text="Play Sound"  Grid.Row="7" Grid.ColumnSpan="5" FontFamily="Comic Sans MS"></Button>
         </Grid>
     </ContentPage.Content>
 

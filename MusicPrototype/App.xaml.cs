@@ -28,7 +28,7 @@ namespace MusicPrototype
             //    VerticalOptions = LayoutOptions.Fill
             //};
 
-            MainPage = new QualANota();//OqueVoceOuve();//Ditado();////LevelPage();// PageInicial();
+            MainPage = new PageInicial();//Perfil();/// /// QualANota();//OqueVoceOuve();//Ditado();//LevelPage();
         }
 
         protected override void OnStart()
