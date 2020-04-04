@@ -55,6 +55,8 @@
                 <RowDefinition Height="30" />
                 <RowDefinition Height="100" />
                 <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="60" />
              </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -108,6 +110,12 @@
                 <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
                 <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
             </StackLayout>
+            <ImageButton Source="{local:ImageResource MusicPrototype.Images.settings.jpg}"
+                    Grid.Row="8" Grid.Column="0" HorizontalOptions="Start"
+                    VerticalOptions="Start" Clicked="ImageButton_Clicked_1"/>
+            <ImageButton Source="{local:ImageResource MusicPrototype.Images.ProfileIcon.jpg}"
+                    Grid.Row="8" Grid.Column="1" HorizontalOptions="End"
+                    VerticalOptions="Start" Clicked="ImageButton_Clicked"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

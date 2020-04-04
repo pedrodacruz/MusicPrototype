@@ -16,5 +16,17 @@ namespace MusicPrototype
         {
             InitializeComponent();
         }
+
+        private void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            Perfil pagina = new Perfil();
+            Navigation.PushModalAsync(pagina);
+        }
+
+        private void ImageButton_Clicked_1(object sender, EventArgs e)
+        {
+            PageInicial pagina = new PageInicial();
+            Navigation.PushModalAsync(pagina);
+        }
     }
 }

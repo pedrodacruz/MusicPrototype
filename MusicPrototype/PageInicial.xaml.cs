@@ -101,6 +101,11 @@ namespace MusicPrototype
             Singleton.Instance.dadosJogador.Meta = ((Button)sender).StyleId;
         }
 
+        private void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            LevelPage pagina = new LevelPage();
+            Navigation.PushModalAsync(pagina);
+        }
     }
 
 

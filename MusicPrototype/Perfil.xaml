@@ -43,9 +43,17 @@
                 <RowDefinition Height="70" />
                 <RowDefinition Height="5" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="70" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="57" />
+                <RowDefinition Height="77" />
+                <RowDefinition Height="27" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="57" />
+                <RowDefinition Height="77" />
+                <RowDefinition Height="27" />
+                <RowDefinition Height="60" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -55,16 +63,38 @@
             </Grid.ColumnDefinitions>
             <ImageButton Source="{local:ImageResource MusicPrototype.Images.ExitButton.jpg}"
                     Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="Start"/>
+                    VerticalOptions="Start" Clicked="ImageButton_Clicked"/>
             <Label Text="Perfil" Grid.Row="0" HorizontalOptions="Center" VerticalTextAlignment="Start" FontFamily="Comic Sans MS"
-                     Grid.ColumnSpan="3" Grid.Column="1" Grid.RowSpan="2" FontSize="Header" TextColor="Gray"/>
+                     Grid.ColumnSpan="3" Grid.Column="1" FontSize="Header" TextColor="Gray"/>
             <BoxView 
             HeightRequest="1" 
             BackgroundColor="LightGray" 
             HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.ColumnSpan="5" />
-            <Image Source="{local:ImageResource MusicPrototype.Images.Primeiro.jpg}"  Grid.Row="3" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalOptions="Fill"/>
-            <Label Text="Você pode mudar sua meta quando quiser" FontFamily="Comic Sans MS" Grid.Row="3" HorizontalOptions="Fill" VerticalTextAlignment="End" TextColor="Black"
-        FontSize="20" Grid.ColumnSpan="2" Grid.Column="3" Grid.RowSpan="2"/>
+            <Image Source="{local:ImageResource MusicPrototype.Images.ProfileIcon.jpg}"  Grid.Row="2" Grid.ColumnSpan="5"  HorizontalOptions="CenterAndExpand"/>
+            <Label x:Name ="txtNome" Text="Nome" Grid.Row="3" HorizontalOptions="Center" VerticalTextAlignment="Start" FontFamily="Comic Sans MS"
+                     Grid.ColumnSpan="3" Grid.Column="1"  FontSize="Medium" TextColor="Gray"/>
+            <Label Text="Conquistas" Grid.Row="4" HorizontalOptions="StartAndExpand" VerticalTextAlignment="End" FontFamily="Comic Sans MS"
+                     Grid.ColumnSpan="5" Grid.Column="0" FontSize="Medium"  TextColor="Gray"/>
+            <BoxView 
+            HeightRequest="1" 
+            BackgroundColor="LightGray" 
+            HorizontalOptions="FillAndExpand" Grid.Row="5" Grid.ColumnSpan="5" />
+            <Image Source="{local:ImageResource MusicPrototype.Images.NaMoscaBadge.jpg}"  Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="3" HorizontalOptions="Fill"/>
+            <Label Text="Na Mosca" FontFamily="Comic Sans MS" Grid.Row="6" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Start" TextColor="Black" FontSize="20" Grid.ColumnSpan="2" Grid.Column="2"/>
+            <Label Text="Faça 1 lição ou prática sem errar nada" FontFamily="Comic Sans MS" Grid.Row="7" HorizontalOptions="Fill" VerticalTextAlignment="End" TextColor="Gray" FontSize="20" Grid.ColumnSpan="2" Grid.Column="2"/>
+            <Label x:Name="StatusNaMosca"  Text="0/1" FontFamily="Comic Sans MS" Grid.Row="8" HorizontalOptions="Center" VerticalTextAlignment="Center"  TextColor="Gray" FontSize="20" Grid.Column="4"/>
+            <ProgressBar x:Name="progressNaMosca" Progress="0.0" Grid.Row="8" Grid.ColumnSpan="2" Grid.Column="2" ProgressColor="GreenYellow" />
+            <BoxView 
+            HeightRequest="1" 
+            BackgroundColor="LightGray" 
+            HorizontalOptions="FillAndExpand" Grid.Row="9" Grid.ColumnSpan="5" />
+            <Image Source="{local:ImageResource MusicPrototype.Images.NaMoscaBadge.jpg}"  Grid.Row="10" Grid.ColumnSpan="2" Grid.RowSpan="3" HorizontalOptions="Fill"/>
+            <Label Text="Superação Total" FontFamily="Comic Sans MS" Grid.Row="10" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Start" TextColor="Black" FontSize="20" Grid.ColumnSpan="2" Grid.Column="2"/>
+            <Label Text="Faça 3 lições ou prática sem errar nada" FontFamily="Comic Sans MS" Grid.Row="11" HorizontalOptions="Fill" VerticalTextAlignment="End" TextColor="Gray" FontSize="20" Grid.ColumnSpan="2" Grid.Column="2"/>
+            <Label x:Name="StatusSuperacaoTotal" Text="0/3" FontFamily="Comic Sans MS" Grid.Row="12" HorizontalOptions="Center" VerticalTextAlignment="Center"  TextColor="Gray" FontSize="20" Grid.Column="4"/>
+            <ProgressBar x:Name="progressSuperacaoTotal" Progress="0.0" Grid.Row="12" Grid.ColumnSpan="2" Grid.Column="2" ProgressColor="GreenYellow" />
+
+
         </Grid>
     </ContentPage.Content>
 

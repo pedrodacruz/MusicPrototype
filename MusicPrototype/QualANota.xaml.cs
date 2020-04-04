@@ -70,5 +70,11 @@ namespace MusicPrototype
             ((Button)sender).BackgroundColor = Color.Red;
             resposta = ((Button)sender).StyleId;
         }
+
+        private void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            LevelPage pagina = new LevelPage();
+            Navigation.PushModalAsync(pagina);
+        }
     }
 }

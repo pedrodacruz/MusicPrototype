@@ -59,7 +59,7 @@
 
             <ImageButton Source="{local:ImageResource MusicPrototype.Images.ExitButton.jpg}"
                     Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="Start"/>
+                    VerticalOptions="Start" Clicked="ImageButton_Clicked_1"/>
 
 
 

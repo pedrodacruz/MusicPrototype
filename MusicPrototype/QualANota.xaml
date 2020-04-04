@@ -38,7 +38,7 @@
             </Grid.ColumnDefinitions>
             <ImageButton Source="{local:ImageResource MusicPrototype.Images.ExitButton.jpg}"
                     Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="Start"/>
+                    VerticalOptions="Start" Clicked="ImageButton_Clicked"/>
             <ProgressBar x:Name="progressLesson" Progress="0.1" Grid.Row="0" Grid.ColumnSpan="5" Grid.Column="1" ProgressColor="GreenYellow" />
             <Label Text="Identifique a nota musical" Grid.Row="1" Grid.ColumnSpan="6" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="Large"/>
             <!--<ImageButton x:Name="btnSom"  Source="{local:ImageResource MusicPrototype.Images.SomButton.jpg}"
