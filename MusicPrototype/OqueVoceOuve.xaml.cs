@@ -1,5 +1,6 @@
 ﻿using Plugin.SimpleAudioPlayer;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
@@ -13,6 +14,10 @@ namespace MusicPrototype
     {
         ISimpleAudioPlayer player;
         string resposta;
+        int indiceLicao = 0;
+        bool validado = false;
+        Dictionary<int, LicaoOqueVoceOuve> dicLicoes = new Dictionary<int, LicaoOqueVoceOuve>();
+        List<LicaoOqueVoceOuve> licoesAExecutar = new List<LicaoOqueVoceOuve>();
         public OqueVoceOuve()
         {
             player = CrossSimpleAudioPlayer.Current;
@@ -21,9 +26,45 @@ namespace MusicPrototype
 
             player.Loop = false;
 
-            player.Load(GetStreamFromFile($"Audio.NaoMusical.wav"));
+            CarregaLicao();
+
+            player.Load(GetStreamFromFile(dicLicoes[indiceLicao].Audio));
 
             InitializeComponent();
+        }
+
+        void CarregaLicao()
+        {
+            dicLicoes.Add(0, new LicaoOqueVoceOuve($"Audio.NaoMusical.mp3", "btnButton2"));
+            dicLicoes.Add(1, new LicaoOqueVoceOuve($"Audio.pianomedio.mp3", "btnButton1"));
+            dicLicoes.Add(2, new LicaoOqueVoceOuve($"Audio.DoReMiTrompete.mp3", "btnButton1"));
+            dicLicoes.Add(3, new LicaoOqueVoceOuve($"Audio.Furadeira.mp3", "btnButton2"));
+            dicLicoes.Add(4, new LicaoOqueVoceOuve($"Audio.Agua1.mp3", "btnButton2"));
+            dicLicoes.Add(5, new LicaoOqueVoceOuve($"Audio.Buzina1.mp3", "btnButton2"));
+            dicLicoes.Add(6, new LicaoOqueVoceOuve($"Audio.Descarga1.mp3", "btnButton2"));
+            dicLicoes.Add(7, new LicaoOqueVoceOuve($"Audio.DoAgudoPianomp3.mp3", "btnButton1"));
+            dicLicoes.Add(8, new LicaoOqueVoceOuve($"Audio.Agua3.mp3", "btnButton2"));
+            dicLicoes.Add(9, new LicaoOqueVoceOuve($"Audio.PianoGrave.mp3", "btnButton1"));
+            dicLicoes.Add(10, new LicaoOqueVoceOuve($"Audio.Doflauta.mp3", "btnButton1"));
+            dicLicoes.Add(11, new LicaoOqueVoceOuve($"Audio.DoTuba.mp3", "btnButton1"));
+
+            for (int i = 0; i < 4; i++)
+            {
+                int indice = RandomNumber(0, 11);
+                if (!licoesAExecutar.Contains(dicLicoes[indice]))
+                {
+                    licoesAExecutar.Add(dicLicoes[indice]);
+                }
+                else
+                    i--;
+                
+            }
+        }
+
+        public int RandomNumber(int min, int max)
+        {
+            Random random = new Random();
+            return random.Next(min, max);
         }
 
         Stream GetStreamFromFile(string filename)
@@ -42,25 +83,48 @@ namespace MusicPrototype
 
         private void btnButton5_Clicked(object sender, EventArgs e)
         {
-            if (ValidaResposta())
+            if(!validado)
             {
-                lblResultado.Text = "Correto!!!";
-                stcResult.BackgroundColor = Color.LightGreen;
+                if (ValidaResposta())
+                {
+                    lblResultado.Text = "Correto!!!";
+                    stcResult.BackgroundColor = Color.LightGreen;
+                }
+                else
+                {
+                    lblResultado.Text = "Incorreto...";
+                    stcResult.BackgroundColor = Color.PaleVioletRed;
+                }
             }
             else
             {
-                lblResultado.Text = "Incorreto...";
-                stcResult.BackgroundColor = Color.PaleVioletRed;
+                carregaProximaFase();
             }
             btnButton5.Text = "Coninuar";
+        }
+        void carregaProximaFase()
+        {
+            indiceLicao++;
+            if(indiceLicao < 4)
+            {
+                player.Load(GetStreamFromFile(licoesAExecutar[indiceLicao].Audio));
+                validado = false;
+                btnButton1.BackgroundColor = btnButton2.BackgroundColor = btnButton3.BackgroundColor = btnButton4.BackgroundColor = Color.Gray;
+                stcResult.BackgroundColor = Color.White;
+                btnButton5.Text = "Verificar";
+            }
+            else
+            {
+                LevelPage pagina = new LevelPage();
+                Navigation.PushModalAsync(pagina);
+            }
+            
         }
 
         private bool ValidaResposta()
         {
-            if(resposta== "btnButton2")
-                return true;
-            else
-                return false;
+            validado = true;
+            return resposta == licoesAExecutar[indiceLicao].Respostacorreta;
         }
 
         private void btnButton_Clicked(object sender, EventArgs e)
@@ -74,6 +138,18 @@ namespace MusicPrototype
         {
             LevelPage pagina = new LevelPage();
             Navigation.PushModalAsync(pagina);
+        }
+    }
+
+    class LicaoOqueVoceOuve
+    {
+        public string Audio { get; set; }
+        public string Respostacorreta { get; set; }
+
+        public LicaoOqueVoceOuve(string Audio, string Respostacorreta)
+        {
+            this.Audio = Audio;
+            this.Respostacorreta = Respostacorreta;
         }
     }
 }

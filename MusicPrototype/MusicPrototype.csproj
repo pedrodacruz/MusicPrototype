@@ -11,8 +11,28 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Audio\Licao1.wav" />
-    <None Remove="Audio\NaoMusical.wav" />
+    <None Remove="Audio\Agua1.mp3" />
+    <None Remove="Audio\Agua3.mp3" />
+    <None Remove="Audio\Buzina1.mp3" />
+    <None Remove="Audio\Descarga1.mp3" />
+    <None Remove="Audio\DoAgudoPianomp3.mp3" />
+    <None Remove="Audio\Doflauta.mp3" />
+    <None Remove="Audio\DoPiano.mp3" />
+    <None Remove="Audio\DoReMiTrompete.mp3" />
+    <None Remove="Audio\DoTuba.mp3" />
+    <None Remove="Audio\FaPiano.mp3" />
+    <None Remove="Audio\Furadeira.mp3" />
+    <None Remove="Audio\LaPiano.mp3" />
+    <None Remove="Audio\Licao1.mp3" />
+    <None Remove="Audio\MiPiano.mp3" />
+    <None Remove="Audio\NaoMusical.mp3" />
+    <None Remove="Audio\PianoAgudo.mp3" />
+    <None Remove="Audio\PianoGrave.mp3" />
+    <None Remove="Audio\pianomedio.mp3" />
+    <None Remove="Audio\PianoQuaseAgudo.mp3" />
+    <None Remove="Audio\RePiano.mp3" />
+    <None Remove="Audio\SiPiano.mp3" />
+    <None Remove="Audio\SolPiano.mp3" />
     <None Remove="Images\ActiveSemibreve.jpg" />
     <None Remove="Images\ActiveSeminima.jpg" />
     <None Remove="Images\ActiveSeminimaPause.jpg" />
@@ -42,8 +62,28 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Audio\Licao1.wav" />
-    <EmbeddedResource Include="Audio\NaoMusical.wav" />
+    <EmbeddedResource Include="Audio\Agua1.mp3" />
+    <EmbeddedResource Include="Audio\Agua3.mp3" />
+    <EmbeddedResource Include="Audio\Buzina1.mp3" />
+    <EmbeddedResource Include="Audio\Descarga1.mp3" />
+    <EmbeddedResource Include="Audio\DoAgudoPianomp3.mp3" />
+    <EmbeddedResource Include="Audio\Doflauta.mp3" />
+    <EmbeddedResource Include="Audio\DoPiano.mp3" />
+    <EmbeddedResource Include="Audio\DoReMiTrompete.mp3" />
+    <EmbeddedResource Include="Audio\DoTuba.mp3" />
+    <EmbeddedResource Include="Audio\FaPiano.mp3" />
+    <EmbeddedResource Include="Audio\Furadeira.mp3" />
+    <EmbeddedResource Include="Audio\LaPiano.mp3" />
+    <EmbeddedResource Include="Audio\Licao1.mp3" />
+    <EmbeddedResource Include="Audio\MiPiano.mp3" />
+    <EmbeddedResource Include="Audio\NaoMusical.mp3" />
+    <EmbeddedResource Include="Audio\PianoAgudo.mp3" />
+    <EmbeddedResource Include="Audio\pianomedio.mp3" />
+    <EmbeddedResource Include="Audio\PianoQuaseAgudo.mp3" />
+    <EmbeddedResource Include="Audio\PianoGrave.mp3" />
+    <EmbeddedResource Include="Audio\RePiano.mp3" />
+    <EmbeddedResource Include="Audio\SiPiano.mp3" />
+    <EmbeddedResource Include="Audio\SolPiano.mp3" />
     <EmbeddedResource Include="Images\ActiveSemibreve.jpg" />
     <EmbeddedResource Include="Images\ActiveSeminima.jpg" />
     <EmbeddedResource Include="Images\ActiveSeminimaPause.jpg" />

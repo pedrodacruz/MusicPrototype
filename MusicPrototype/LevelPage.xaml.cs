@@ -28,5 +28,11 @@ namespace MusicPrototype
             PageInicial pagina = new PageInicial();
             Navigation.PushModalAsync(pagina);
         }
+
+        private void ImageButton_Clicked_2(object sender, EventArgs e)
+        {
+            OqueVoceOuve pagina = new OqueVoceOuve();
+            Navigation.PushModalAsync(pagina);
+        }
     }
 }

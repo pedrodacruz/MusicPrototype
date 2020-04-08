@@ -65,7 +65,7 @@
 
             <ImageButton Source="{local:ImageResource MusicPrototype.Images.ActiveSemibreve.jpg}"
                     Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center"
-                    VerticalOptions="CenterAndExpand"/>
+                    VerticalOptions="CenterAndExpand" Clicked="ImageButton_Clicked_2"/>
             <StackLayout Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="Center" Orientation="Horizontal">
                 <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
                 <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>

@@ -22,7 +22,7 @@ namespace MusicPrototype
 
             player.Loop = false;
 
-            player.Load(GetStreamFromFile($"Audio.NaoMusical.wav"));
+            player.Load(GetStreamFromFile($"Audio.NaoMusical.mp3"));
 
             InitializeComponent();
 
