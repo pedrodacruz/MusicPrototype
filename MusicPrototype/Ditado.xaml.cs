@@ -46,7 +46,7 @@ namespace MusicPrototype
 
             player.Loop = false;
 
-            player.Load(GetStreamFromFile($"Audio.Licao1.wav"));
+            player.Load(GetStreamFromFile($"Audio.Licao1.mp3"));
 
             InitializeComponent();
 

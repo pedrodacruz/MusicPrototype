@@ -121,6 +121,7 @@ namespace MusicPrototype
             }
             else
             {
+                Singleton.Instance.dadosJogador.adcionaNovaFase(0);
                 LevelPage pagina = new LevelPage();
                 Navigation.PushModalAsync(pagina);
             }
