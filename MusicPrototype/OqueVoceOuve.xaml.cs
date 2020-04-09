@@ -14,7 +14,6 @@ namespace MusicPrototype
     {
         ISimpleAudioPlayer player;
         string resposta;
-        int indiceLicao = 0;
         bool validado = false;
         Dictionary<int, LicaoOqueVoceOuve> dicLicoes = new Dictionary<int, LicaoOqueVoceOuve>();
         List<LicaoOqueVoceOuve> licoesAExecutar = new List<LicaoOqueVoceOuve>();
@@ -26,14 +25,20 @@ namespace MusicPrototype
 
             player.Loop = false;
 
-            CarregaLicao();
-
-            player.Load(GetStreamFromFile(dicLicoes[indiceLicao].Audio));
+            CarregaLicoes();
 
             InitializeComponent();
+
+            carregaFase();
+
+            if(Singleton.Instance.dadosJogador.ProgressoFase[0]!=0)
+            {
+                progressLesson.Progress = (0.25 * (Singleton.Instance.dadosJogador.ProgressoFase[0]));
+            }
+            
         }
 
-        void CarregaLicao()
+        void CarregaLicoes()
         {
             dicLicoes.Add(0, new LicaoOqueVoceOuve($"Audio.NaoMusical.mp3", "btnButton2"));
             dicLicoes.Add(1, new LicaoOqueVoceOuve($"Audio.pianomedio.mp3", "btnButton1"));
@@ -87,6 +92,7 @@ namespace MusicPrototype
             {
                 if (ValidaResposta())
                 {
+                    progressLesson.Progress = (0.25 * (Singleton.Instance.dadosJogador.ProgressoFase[0]+1));
                     lblResultado.Text = "Correto!!!";
                     stcResult.BackgroundColor = Color.LightGreen;
                 }
@@ -98,16 +104,16 @@ namespace MusicPrototype
             }
             else
             {
-                carregaProximaFase();
+                Singleton.Instance.dadosJogador.ProgressoFase[0]++;
+                carregaFase();
             }
             btnButton5.Text = "Coninuar";
         }
-        void carregaProximaFase()
+        void carregaFase()
         {
-            indiceLicao++;
-            if(indiceLicao < 4)
+            if (Singleton.Instance.dadosJogador.ProgressoFase[0] < 4)
             {
-                player.Load(GetStreamFromFile(licoesAExecutar[indiceLicao].Audio));
+                player.Load(GetStreamFromFile(licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[0]].Audio));
                 validado = false;
                 btnButton1.BackgroundColor = btnButton2.BackgroundColor = btnButton3.BackgroundColor = btnButton4.BackgroundColor = Color.Gray;
                 stcResult.BackgroundColor = Color.White;
@@ -124,7 +130,7 @@ namespace MusicPrototype
         private bool ValidaResposta()
         {
             validado = true;
-            return resposta == licoesAExecutar[indiceLicao].Respostacorreta;
+            return resposta == licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[0]].Respostacorreta;
         }
 
         private void btnButton_Clicked(object sender, EventArgs e)

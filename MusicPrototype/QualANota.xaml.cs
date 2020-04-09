@@ -38,7 +38,7 @@ namespace MusicPrototype
         {
             
             InitializeComponent();
-            imgNota.Source = ImageSource.FromResource(resourceDo, typeof(QualANota).GetTypeInfo().Assembly); ;
+            imgNota.Source = ImageSource.FromResource(resourceDo, typeof(QualANota).GetTypeInfo().Assembly) ;
         }
 
         private void btnButton5_Clicked(object sender, EventArgs e)

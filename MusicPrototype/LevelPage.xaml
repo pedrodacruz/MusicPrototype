@@ -63,52 +63,52 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <ImageButton Source="{local:ImageResource MusicPrototype.Images.ActiveSemibreve.jpg}"
+            <ImageButton x:Name="Fase1" Source="{local:ImageResource MusicPrototype.Images.ActiveSemibreve.jpg}"
                     Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand" Clicked="ImageButton_Clicked_2"/>
             <StackLayout Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="Center" Orientation="Horizontal">
-                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
-                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
-                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
-                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image x:Name="Fase1progress1" Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image x:Name="Fase1progress2" Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image x:Name="Fase1progress3" Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image x:Name="Fase1progress4" Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
             </StackLayout>
 
-            <ImageButton Source="{local:ImageResource MusicPrototype.Images.InactiveSemibreve.jpg}"
+            <ImageButton x:Name="Fase2" Source="{local:ImageResource MusicPrototype.Images.InactiveSemibreve.jpg}"
                     Grid.Row="3" Grid.Column="0" HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand"/>
             <StackLayout Grid.Row="4" Grid.Column="0" HorizontalOptions="Center" Orientation="Horizontal">
-                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
-                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
-                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
-                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image x:Name="Fase2progress1"  Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image x:Name="Fase2progress2" Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image x:Name="Fase2progress3" Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image x:Name="Fase2progress4" Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
             </StackLayout>
-            <ImageButton Source="{local:ImageResource MusicPrototype.Images.InactiveSemibreve.jpg}"
+            <ImageButton x:Name="Fase3" Source="{local:ImageResource MusicPrototype.Images.InactiveSemibreve.jpg}"
                     Grid.Row="3" Grid.Column="1" HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand"/>
             <StackLayout Grid.Row="4" Grid.Column="1" HorizontalOptions="Center" Orientation="Horizontal">
-                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
-                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
-                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
-                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image x:Name="Fase3progress1" Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image x:Name="Fase3progress2" Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image x:Name="Fase3progress3" Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image x:Name="Fase3progress4" Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
             </StackLayout>
-            
-            <ImageButton Source="{local:ImageResource MusicPrototype.Images.InactiveSemibreve.jpg}"
+
+            <ImageButton x:Name="Fase4" Source="{local:ImageResource MusicPrototype.Images.InactiveSemibreve.jpg}"
                     Grid.Row="5" Grid.Column="0" HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand"/>
             <StackLayout Grid.Row="6" Grid.Column="0" HorizontalOptions="Center" Orientation="Horizontal">
-                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
-                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
-                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
-                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image x:Name="Fase4progress1" Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image x:Name="Fase4progress2" Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image x:Name="Fase4progress3" Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image x:Name="Fase4progress4" Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
             </StackLayout>
-            <ImageButton Source="{local:ImageResource MusicPrototype.Images.InactiveSemibreve.jpg}"
+            <ImageButton x:Name="Fase5" Source="{local:ImageResource MusicPrototype.Images.InactiveSemibreve.jpg}"
                     Grid.Row="5" Grid.Column="1" HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand"/>
             <StackLayout Grid.Row="6" Grid.Column="1"  HorizontalOptions="Center" Orientation="Horizontal">
-                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
-                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
-                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
-                <Image Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image x:Name="Fase5progress1" Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image x:Name="Fase5progress2" Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image x:Name="Fase5progress3" Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
+                <Image x:Name="Fase5progress4" Source="{local:ImageResource MusicPrototype.Images.InactiveSeminima.jpg}"/>
             </StackLayout>
             <ImageButton Source="{local:ImageResource MusicPrototype.Images.settings.jpg}"
                     Grid.Row="8" Grid.Column="0" HorizontalOptions="Start"

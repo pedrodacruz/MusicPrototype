@@ -10,5 +10,6 @@ namespace MusicPrototype
     {
         public string Meta;
         public string Nome;
+        public Dictionary<int, int> ProgressoFase;
     }
 }
