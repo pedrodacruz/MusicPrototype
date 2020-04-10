@@ -48,66 +48,17 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <!--<Grid.Effects>
-                <tt:TouchEffect Capture="True"
-                                TouchAction="OnTouchEffectAction" />
-            </Grid.Effects>
-
-            <skia:SKCanvasView x:Name="canvasView"  Grid.Row="6" Grid.Column="1" HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="13" 
-                               PaintSurface="OnCanvasViewPaintSurface" VerticalOptions="Center" />-->
-
-
             <ImageButton Source="{local:ImageResource MusicPrototype.Images.ExitButton.jpg}"
                     Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand"
                     VerticalOptions="Start" Clicked="ImageButton_Clicked_1"/>
 
-
-
             <ProgressBar x:Name="progressLesson" Progress="0.1" Grid.Row="0" Grid.ColumnSpan="12"  Grid.Column="1" ProgressColor="GreenYellow" />
-
-
-
 
             <Label Text="Posicione a barra de acordo com a linhagem musical" Grid.Row="1" Grid.ColumnSpan="13" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="Large"/>
             <ImageButton Source="{local:ImageResource MusicPrototype.Images.SomButton.jpg}"
                     Grid.Row="2" Grid.Column="0" HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="13" 
                     VerticalOptions="Center" Clicked="ImageButton_Clicked"/>
-            <!--<Image Source="{local:ImageResource MusicPrototype.Images.BarraVertical.jpg}"
-                    Grid.Row="5" Grid.Column="1" HorizontalOptions="CenterAndExpand" 
-                    VerticalOptions="Center" />
-            <Image x:Name="linha1" Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
-                    Grid.Row="4" Grid.Column="1" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3"
-                    VerticalOptions="Center" IsVisible="False"/>
-            <Image Source="{local:ImageResource MusicPrototype.Images.BarraVertical.jpg}"
-                    Grid.Row="5" Grid.Column="3" HorizontalOptions="CenterAndExpand" 
-                    VerticalOptions="Center" />
-            <Image x:Name="linha2" Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
-                    Grid.Row="4" Grid.Column="3" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3" 
-                    VerticalOptions="Center" IsVisible="False"/>
-            <Image Source="{local:ImageResource MusicPrototype.Images.BarraVertical.jpg}"
-                    Grid.Row="5" Grid.Column="5" HorizontalOptions="CenterAndExpand" 
-                    VerticalOptions="Center" />
-            <Image x:Name="linha3" Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
-                    Grid.Row="4" Grid.Column="5" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3" 
-                    VerticalOptions="Center" IsVisible="False"/>
-            <Image Source="{local:ImageResource MusicPrototype.Images.BarraVertical.jpg}"
-                    Grid.Row="5" Grid.Column="7" HorizontalOptions="CenterAndExpand" 
-                    VerticalOptions="Center" />
-            <Image x:Name="linha4" Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
-                    Grid.Row="4" Grid.Column="7" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3" 
-                    VerticalOptions="Center" IsVisible="False"/>
-            <Image Source="{local:ImageResource MusicPrototype.Images.BarraVertical.jpg}"
-                    Grid.Row="5" Grid.Column="9" HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="Center" />
-            <Image x:Name="linha5" Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
-                    Grid.Row="4" Grid.Column="9" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3" 
-                    VerticalOptions="Center" IsVisible="False"/>
-            <Image Source="{local:ImageResource MusicPrototype.Images.BarraVertical.jpg}"
-                    Grid.Row="5" Grid.Column="11" HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="Center" />
-            <Image Source="{local:ImageResource MusicPrototype.Images.BarraHorizontal.jpg}"
-                    Grid.Row="6" Grid.Column="1" HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="13" 
-                    VerticalOptions="Center" />-->
+
             <Grid BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"
              Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="14" Grid.RowSpan="5" >
                 <Grid.Effects>

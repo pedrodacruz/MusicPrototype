@@ -50,7 +50,11 @@ namespace MusicPrototype
                 Navigation.PushModalAsync(pagina);
             }
 
-
+            if (((ImageButton)sender).StyleId == "Fase3")
+            {
+                QualANota pagina = new QualANota();
+                Navigation.PushModalAsync(pagina);
+            }
         }
 
         void loadProgress()

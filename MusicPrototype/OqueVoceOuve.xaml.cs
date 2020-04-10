@@ -88,11 +88,16 @@ namespace MusicPrototype
 
         private void btnButton5_Clicked(object sender, EventArgs e)
         {
-            if(!validado)
+            AtualizaProgresso();
+        }
+
+        private void AtualizaProgresso()
+        {
+            if (!validado)
             {
                 if (ValidaResposta())
                 {
-                    progressLesson.Progress = (0.25 * (Singleton.Instance.dadosJogador.ProgressoFase[0]+1));
+                    progressLesson.Progress = (0.25 * (Singleton.Instance.dadosJogador.ProgressoFase[0] + 1));
                     lblResultado.Text = "Correto!!!";
                     stcResult.BackgroundColor = Color.LightGreen;
                 }
@@ -101,14 +106,16 @@ namespace MusicPrototype
                     lblResultado.Text = "Incorreto...";
                     stcResult.BackgroundColor = Color.PaleVioletRed;
                 }
+                btnButton5.Text = "Coninuar";
             }
             else
             {
                 Singleton.Instance.dadosJogador.ProgressoFase[0]++;
                 carregaFase();
             }
-            btnButton5.Text = "Coninuar";
+
         }
+
         void carregaFase()
         {
             if (Singleton.Instance.dadosJogador.ProgressoFase[0] < 4)
@@ -122,6 +129,7 @@ namespace MusicPrototype
             else
             {
                 Singleton.Instance.dadosJogador.adcionaNovaFase(0);
+                Singleton.Instance.Save();
                 LevelPage pagina = new LevelPage();
                 Navigation.PushModalAsync(pagina);
             }

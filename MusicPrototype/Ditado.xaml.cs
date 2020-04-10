@@ -16,26 +16,24 @@ namespace MusicPrototype
     {
         ISimpleAudioPlayer player;
 
+        bool validado = false;
+        Dictionary<int, LicaoDitado> dicLicoes = new Dictionary<int, LicaoDitado>();
+        List<LicaoDitado> licoesAExecutar = new List<LicaoDitado>();
 
         string resourceBarraHorizontal = "MusicPrototype.Images.BarraHorizontal.jpg";
         string resourceBarraVertical = "MusicPrototype.Images.BarraVertical.jpg";
 
         SKCanvas canvas;
 
-        List<TouchManipulationBitmap> bitmapCollection =
-           new List<TouchManipulationBitmap>();
+        List<TouchManipulationBitmap> bitmapCollection = new List<TouchManipulationBitmap>();
 
-        List<TouchManipulationBitmap> VerticalbitmapCollection =
-   new List<TouchManipulationBitmap>();
+        List<TouchManipulationBitmap> VerticalbitmapCollection = new List<TouchManipulationBitmap>();
 
-        List<TouchManipulationBitmap> InvisiblebitmapCollection =
-            new List<TouchManipulationBitmap>();
+        List<TouchManipulationBitmap> InvisiblebitmapCollection = new List<TouchManipulationBitmap>();
 
-        List<TouchManipulationBitmap> VisiblebitmapCollection =
-    new List<TouchManipulationBitmap>();
+        List<TouchManipulationBitmap> VisiblebitmapCollection = new List<TouchManipulationBitmap>();
 
-        Dictionary<long, TouchManipulationBitmap> bitmapDictionary =
-            new Dictionary<long, TouchManipulationBitmap>();
+        Dictionary<long, TouchManipulationBitmap> bitmapDictionary = new Dictionary<long, TouchManipulationBitmap>();
 
         public Ditado()
         {
@@ -46,13 +44,28 @@ namespace MusicPrototype
 
             player.Loop = false;
 
-            player.Load(GetStreamFromFile($"Audio.Licao1.mp3"));
+            CarregaLicoes();
 
             InitializeComponent();
 
+            CarregaBarras();
+
+            carregaFase();
+
+            if (Singleton.Instance.dadosJogador.ProgressoFase[0] != 0)
+            {
+                progressLesson.Progress = (0.25 * (Singleton.Instance.dadosJogador.ProgressoFase[0]));
+            }
+        }
+
+        private void CarregaBarras()
+        {
             Assembly assembly = GetType().GetTypeInfo().Assembly;
             // Load in all the available bitmaps
             SKPoint position = new SKPoint();
+
+            VisiblebitmapCollection.Clear();
+            canvasView.InvalidateSurface();
 
             //Barras Verticais
             using (Stream stream = assembly.GetManifestResourceStream(resourceBarraVertical))
@@ -102,12 +115,97 @@ namespace MusicPrototype
                 }
             }
         }
+
         Stream GetStreamFromFile(string filename)
         {
             var assembly = typeof(App).GetTypeInfo().Assembly;
             var stream = assembly.GetManifestResourceStream("MusicPrototype." + filename);
 
             return stream;
+        }
+
+        void CarregaLicoes()
+        {
+            dicLicoes.Add(0, new LicaoDitado($"Audio.Ditado.Licao1.mp3", new List<int> { 1, 2, 3, 5 }));
+            dicLicoes.Add(1, new LicaoDitado($"Audio.Ditado.Licao2.mp3", new List<int> { 1, 2, 3, 4, 5 }));
+            dicLicoes.Add(2, new LicaoDitado($"Audio.Ditado.Licao3.mp3", new List<int> { 2, 3, 5 }));
+            dicLicoes.Add(3, new LicaoDitado($"Audio.Ditado.Licao4.mp3", new List<int> { 2, 3, 5 }));
+            dicLicoes.Add(4, new LicaoDitado($"Audio.Ditado.Licao5.mp3", new List<int> { 1, 3, 5 }));
+            dicLicoes.Add(5, new LicaoDitado($"Audio.Ditado.Licao6.mp3", new List<int> { 1, 5 }));
+            dicLicoes.Add(6, new LicaoDitado($"Audio.Ditado.Licao7.mp3", new List<int> { 3, 5 }));
+            dicLicoes.Add(7, new LicaoDitado($"Audio.Ditado.Licao8.mp3", new List<int> { 5 }));
+            dicLicoes.Add(8, new LicaoDitado($"Audio.Ditado.Licao9.mp3", new List<int> { 1, 2, 3, 5 }));
+            dicLicoes.Add(9, new LicaoDitado($"Audio.Ditado.Licao10.mp3", new List<int> { 1, 2, 5 }));
+            dicLicoes.Add(10, new LicaoDitado($"Audio.Ditado.Licao11.mp3", new List<int>()));
+
+            for (int i = 0; i < 4; i++)
+            {
+                int indice = RandomNumber(0, 10);
+                if (!licoesAExecutar.Contains(dicLicoes[indice]))
+                {
+                    licoesAExecutar.Add(dicLicoes[indice]);
+                }
+                else
+                    i--;
+
+            }
+        }
+
+        private void AtualizaProgresso()
+        {
+            if (!this.validado)
+            {
+                if (ValidaResposta())
+                {
+                    progressLesson.Progress = (0.25 * (Singleton.Instance.dadosJogador.ProgressoFase[1] + 1));
+                    lblResultado.Text = "Correto!!!";
+                    stcResult.BackgroundColor = Color.LightGreen;
+                }
+                else
+                {
+                    lblResultado.Text = "Incorreto...";
+                    stcResult.BackgroundColor = Color.PaleVioletRed;
+                }
+                btnButton5.Text = "Coninuar";
+            }
+            else
+            {
+                Singleton.Instance.dadosJogador.ProgressoFase[1]++;
+                carregaFase();
+                CarregaBarras();
+            }
+
+        }
+
+        void carregaFase()
+        {
+            if (Singleton.Instance.dadosJogador.ProgressoFase[1] < 4)
+            {
+                player.Load(GetStreamFromFile(licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[1]].Audio));
+                this.validado = false;
+                stcResult.BackgroundColor = Color.White;
+                btnButton5.Text = "Verificar";
+            }
+            else
+            {
+                Singleton.Instance.dadosJogador.adcionaNovaFase(1);
+                Singleton.Instance.Save();
+                LevelPage pagina = new LevelPage();
+                Navigation.PushModalAsync(pagina);
+            }
+
+        }
+
+        private bool ValidaResposta()
+        {
+            this.validado = true;
+            return ValidaDitado();
+        }
+
+        public int RandomNumber(int min, int max)
+        {
+            Random random = new Random();
+            return random.Next(min, max);
         }
 
         void OnTouchEffectAction(object sender, TouchActionEventArgs args)
@@ -231,34 +329,19 @@ namespace MusicPrototype
 
         private void btnButton5_Clicked(object sender, EventArgs e)
         {
-            if(ValidaDitado())
-            {
-                lblResultado.Text = "Correto!!!";
-                stcResult.BackgroundColor = Color.LightGreen;
-            }
-            else
-            {
-                lblResultado.Text = "Incorreto...";
-                stcResult.BackgroundColor = Color.PaleVioletRed;
-            }
-            btnButton5.Text = "Coninuar";
+            AtualizaProgresso();
         }
 
         private bool ValidaDitado()
         {
             //Verifica se a quantidade de itens está correta
-            if (VisiblebitmapCollection.Count == 4)
+            if (VisiblebitmapCollection.Count == licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[1]].valoresRespostas.Count)
             {
                 //Verifica todas as posições estão corretas
                 foreach (var item in VisiblebitmapCollection)
                 {
-                    foreach (var item2 in InvisiblebitmapCollection)
-                    {
-                        if (item.Matrix.TransX == item2.Matrix.TransX)
-                        {
-                            return false;
-                        }
-                    }
+                    if(!licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[1]].valoresRespostas.Contains((int)item.Matrix.TransX / 70))
+                        return false;
                 }
                 return true;
             }
@@ -272,6 +355,18 @@ namespace MusicPrototype
         {
             LevelPage pagina = new LevelPage();
             Navigation.PushModalAsync(pagina);
+        }
+    }
+
+    class LicaoDitado
+    {
+        public string Audio { get; set; }
+        public List<int> valoresRespostas { get; set; }
+
+        public LicaoDitado(string Audio, List<int> valoresRespostas)
+        {
+            this.Audio = Audio;
+            this.valoresRespostas = valoresRespostas;
         }
     }
 }
