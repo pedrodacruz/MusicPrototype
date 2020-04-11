@@ -55,6 +55,12 @@ namespace MusicPrototype
                 QualANota pagina = new QualANota(2);
                 Navigation.PushModalAsync(pagina);
             }
+
+            if (((ImageButton)sender).StyleId == "Fase4")
+            {
+                OqueVoceOuve pagina = new OqueVoceOuve(3);
+                Navigation.PushModalAsync(pagina);
+            }
         }
 
         void loadProgress()
