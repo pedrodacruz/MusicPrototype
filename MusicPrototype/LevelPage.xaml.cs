@@ -40,19 +40,19 @@ namespace MusicPrototype
                     Singleton.Instance.dadosJogador.ProgressoFase = new Dictionary<int, int>();
                     Singleton.Instance.dadosJogador.ProgressoFase.Add(0, 0);
                 }
-                OqueVoceOuve pagina = new OqueVoceOuve();
+                OqueVoceOuve pagina = new OqueVoceOuve(0);
                 Navigation.PushModalAsync(pagina);
             }
 
             if (((ImageButton)sender).StyleId == "Fase2")
             {
-                Ditado pagina = new Ditado();
+                Ditado pagina = new Ditado(1);
                 Navigation.PushModalAsync(pagina);
             }
 
             if (((ImageButton)sender).StyleId == "Fase3")
             {
-                QualANota pagina = new QualANota();
+                QualANota pagina = new QualANota(2);
                 Navigation.PushModalAsync(pagina);
             }
         }

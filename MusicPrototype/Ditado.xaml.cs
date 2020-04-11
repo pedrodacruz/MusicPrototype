@@ -34,10 +34,10 @@ namespace MusicPrototype
         List<TouchManipulationBitmap> VisiblebitmapCollection = new List<TouchManipulationBitmap>();
 
         Dictionary<long, TouchManipulationBitmap> bitmapDictionary = new Dictionary<long, TouchManipulationBitmap>();
-
-        public Ditado()
+        int numeroFase = 0;
+        public Ditado(int numeroFase)
         {
-
+            this.numeroFase = numeroFase;
             player = CrossSimpleAudioPlayer.Current;
 
             player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
@@ -52,9 +52,9 @@ namespace MusicPrototype
 
             carregaFase();
 
-            if (Singleton.Instance.dadosJogador.ProgressoFase[0] != 0)
+            if (Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase] != 0)
             {
-                progressLesson.Progress = (0.25 * (Singleton.Instance.dadosJogador.ProgressoFase[0]));
+                progressLesson.Progress = (0.25 * (Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]));
             }
         }
 
@@ -157,7 +157,7 @@ namespace MusicPrototype
             {
                 if (ValidaResposta())
                 {
-                    progressLesson.Progress = (0.25 * (Singleton.Instance.dadosJogador.ProgressoFase[1] + 1));
+                    progressLesson.Progress = (0.25 * (Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase] + 1));
                     lblResultado.Text = "Correto!!!";
                     stcResult.BackgroundColor = Color.LightGreen;
                 }
@@ -170,7 +170,7 @@ namespace MusicPrototype
             }
             else
             {
-                Singleton.Instance.dadosJogador.ProgressoFase[1]++;
+                Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]++;
                 carregaFase();
                 CarregaBarras();
             }
@@ -179,16 +179,16 @@ namespace MusicPrototype
 
         void carregaFase()
         {
-            if (Singleton.Instance.dadosJogador.ProgressoFase[1] < 4)
+            if (Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase] < 4)
             {
-                player.Load(GetStreamFromFile(licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[1]].Audio));
+                player.Load(GetStreamFromFile(licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]].Audio));
                 this.validado = false;
                 stcResult.BackgroundColor = Color.White;
                 btnButton5.Text = "Verificar";
             }
             else
             {
-                Singleton.Instance.dadosJogador.adcionaNovaFase(1);
+                Singleton.Instance.dadosJogador.adcionaNovaFase(this.numeroFase);
                 Singleton.Instance.Save();
                 LevelPage pagina = new LevelPage();
                 Navigation.PushModalAsync(pagina);
@@ -335,12 +335,12 @@ namespace MusicPrototype
         private bool ValidaDitado()
         {
             //Verifica se a quantidade de itens está correta
-            if (VisiblebitmapCollection.Count == licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[1]].valoresRespostas.Count)
+            if (VisiblebitmapCollection.Count == licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]].valoresRespostas.Count)
             {
                 //Verifica todas as posições estão corretas
                 foreach (var item in VisiblebitmapCollection)
                 {
-                    if(!licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[1]].valoresRespostas.Contains((int)item.Matrix.TransX / 70))
+                    if(!licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]].valoresRespostas.Contains((int)item.Matrix.TransX / 70))
                         return false;
                 }
                 return true;

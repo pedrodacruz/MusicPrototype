@@ -17,8 +17,10 @@ namespace MusicPrototype
         bool validado = false;
         Dictionary<int, LicaoOqueVoceOuve> dicLicoes = new Dictionary<int, LicaoOqueVoceOuve>();
         List<LicaoOqueVoceOuve> licoesAExecutar = new List<LicaoOqueVoceOuve>();
-        public OqueVoceOuve()
+        int numeroFase = 0;
+        public OqueVoceOuve( int numeroFase)
         {
+            this.numeroFase = numeroFase;
             player = CrossSimpleAudioPlayer.Current;
 
             player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
@@ -31,9 +33,9 @@ namespace MusicPrototype
 
             carregaFase();
 
-            if(Singleton.Instance.dadosJogador.ProgressoFase[0]!=0)
+            if(Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase] !=0)
             {
-                progressLesson.Progress = (0.25 * (Singleton.Instance.dadosJogador.ProgressoFase[0]));
+                progressLesson.Progress = (0.25 * (Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]));
             }
             
         }
@@ -97,7 +99,7 @@ namespace MusicPrototype
             {
                 if (ValidaResposta())
                 {
-                    progressLesson.Progress = (0.25 * (Singleton.Instance.dadosJogador.ProgressoFase[0] + 1));
+                    progressLesson.Progress = (0.25 * (Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase] + 1));
                     lblResultado.Text = "Correto!!!";
                     stcResult.BackgroundColor = Color.LightGreen;
                 }
@@ -110,7 +112,7 @@ namespace MusicPrototype
             }
             else
             {
-                Singleton.Instance.dadosJogador.ProgressoFase[0]++;
+                Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]++;
                 carregaFase();
             }
 
@@ -118,9 +120,9 @@ namespace MusicPrototype
 
         void carregaFase()
         {
-            if (Singleton.Instance.dadosJogador.ProgressoFase[0] < 4)
+            if (Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase] < 4)
             {
-                player.Load(GetStreamFromFile(licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[0]].Audio));
+                player.Load(GetStreamFromFile(licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]].Audio));
                 validado = false;
                 btnButton1.BackgroundColor = btnButton2.BackgroundColor = btnButton3.BackgroundColor = btnButton4.BackgroundColor = Color.Gray;
                 stcResult.BackgroundColor = Color.White;
@@ -128,7 +130,7 @@ namespace MusicPrototype
             }
             else
             {
-                Singleton.Instance.dadosJogador.adcionaNovaFase(0);
+                Singleton.Instance.dadosJogador.adcionaNovaFase(this.numeroFase);
                 Singleton.Instance.Save();
                 LevelPage pagina = new LevelPage();
                 Navigation.PushModalAsync(pagina);
@@ -139,7 +141,7 @@ namespace MusicPrototype
         private bool ValidaResposta()
         {
             validado = true;
-            return resposta == licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[0]].Respostacorreta;
+            return resposta == licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]].Respostacorreta;
         }
 
         private void btnButton_Clicked(object sender, EventArgs e)

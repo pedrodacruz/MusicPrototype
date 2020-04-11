@@ -34,9 +34,11 @@ namespace MusicPrototype
 
         string resourceSi = "MusicPrototype.Images.Notas.SiClaveSol.jpg";
 
-        public QualANota()
+        int numeroFase = 0;
+        public QualANota(int numeroFase)
         {
-            
+            this.numeroFase = numeroFase;
+
             InitializeComponent();
             imgNota.Source = ImageSource.FromResource(resourceDo, typeof(QualANota).GetTypeInfo().Assembly) ;
         }
