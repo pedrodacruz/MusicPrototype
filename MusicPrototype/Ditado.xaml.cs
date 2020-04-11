@@ -140,7 +140,7 @@ namespace MusicPrototype
 
             for (int i = 0; i < 4; i++)
             {
-                int indice = RandomNumber(0, 10);
+                int indice = RandomNumber(0, dicLicoes.Count);
                 if (!licoesAExecutar.Contains(dicLicoes[indice]))
                 {
                     licoesAExecutar.Add(dicLicoes[indice]);

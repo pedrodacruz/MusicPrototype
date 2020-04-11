@@ -45,13 +45,13 @@
                     Grid.Row="2" Grid.Column="0" HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="6" 
                     VerticalOptions="Center" IsVisible="true"/>-->
             <Image x:Name="imgNota" Source="{local:ImageResource MusicPrototype.Images.Notas.SiClaveSol.jpg}"  Grid.Row="2" Grid.ColumnSpan="6" HorizontalOptions="Fill"/>
-            <Button x:Name="btnDo"  Text="Dó"  Grid.Row="5" Grid.Column="0"  BackgroundColor="Red" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
-            <Button x:Name="btnRe"  Text="Ré"  Grid.Row="5" Grid.Column="1" BackgroundColor="Red" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
-            <Button x:Name="btnMi"  Text="Mi"  Grid.Row="5" Grid.Column="2" BackgroundColor="Red" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
-            <Button x:Name="btnFa"  Text="Fá"  Grid.Row="5" Grid.Column="3" BackgroundColor="Red"  TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
-            <Button x:Name="btnSol" Text="Sol"  Grid.Row="5" Grid.Column="4" BackgroundColor="Red"  TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
-            <Button x:Name="btnLa"  Text="Lá"  Grid.Row="5"  Grid.Column="5" BackgroundColor="Red"  TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
-            <Button x:Name="btnSi"  Text="Sí"  Grid.Row="6" Grid.Column="5" BackgroundColor="Red"  TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
+            <Button x:Name="btnDo"  Text="Dó"  Grid.Row="5" Grid.Column="0"  BackgroundColor="Gray" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
+            <Button x:Name="btnRe"  Text="Ré"  Grid.Row="5" Grid.Column="1" BackgroundColor="Gray" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
+            <Button x:Name="btnMi"  Text="Mi"  Grid.Row="5" Grid.Column="2" BackgroundColor="Gray" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
+            <Button x:Name="btnFa"  Text="Fá"  Grid.Row="5" Grid.Column="3" BackgroundColor="Gray"  TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
+            <Button x:Name="btnSol" Text="Sol"  Grid.Row="5" Grid.Column="4" BackgroundColor="Gray"  TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
+            <Button x:Name="btnLa"  Text="Lá"  Grid.Row="5"  Grid.Column="5" BackgroundColor="Gray"  TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
+            <Button x:Name="btnSi"  Text="Sí"  Grid.Row="6" Grid.Column="5" BackgroundColor="Gray"  TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
             <StackLayout x:Name="stcResult" Orientation="Vertical"  Grid.Row="7" Grid.ColumnSpan="6" BackgroundColor="White" Grid.RowSpan="2">
                 <Label x:Name="lblResultado" Text="" FontFamily="Comic Sans MS" TextColor="White" FontSize="Large"  HorizontalTextAlignment="Center"></Label>
                 <Button x:Name="btnButton5" Text="Verificar"  BackgroundColor="LightBlue" TextColor="White" FontSize="Large" CornerRadius="15" VerticalOptions="End" Clicked="btnButton5_Clicked"></Button>

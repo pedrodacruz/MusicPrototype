@@ -14,56 +14,109 @@ namespace MusicPrototype
     public partial class QualANota : ContentPage
     {
         string resposta;
-
-        string resourceDoGrave = "MusicPrototype.Images.Notas.DoGraveClaveSol.jpg";
-        string resourceDo = "MusicPrototype.Images.Notas.DoClaveSol.jpg";
-
-        string resourceRe = "MusicPrototype.Images.Notas.ReClaveSol.jpg";
-        string resourceReGrave = "MusicPrototype.Images.Notas.ReGraveClaveSol.jpg";
-
-        string resourceMi = "MusicPrototype.Images.Notas.MiClaveSol.jpg";
-        string resourceMiMedio = "MusicPrototype.Images.Notas.MiMedioClaveSol.jpg";
-
-        string resourceFaMedio = "MusicPrototype.Images.Notas.FaClaveSol.jpg";
-        string resourceFa = "MusicPrototype.Images.Notas.FaMedioClaveSol.jpg";
-
-        string resourceSolAgudo = "MusicPrototype.Images.Notas.SolAgudoClaveSol.jpg";
-        string resourceSol = "MusicPrototype.Images.Notas.SolClaveSol.jpg";
-
-        string resourceLa = "MusicPrototype.Images.Notas.LaClaveSol.jpg";
-
-        string resourceSi = "MusicPrototype.Images.Notas.SiClaveSol.jpg";
-
+        bool validado = false;
+        Dictionary<int, LicaoQualANota> dicLicoes = new Dictionary<int, LicaoQualANota>();
+        List<LicaoQualANota> licoesAExecutar = new List<LicaoQualANota>();
         int numeroFase = 0;
+        
         public QualANota(int numeroFase)
         {
             this.numeroFase = numeroFase;
+            CarregaLicoes();
 
             InitializeComponent();
-            imgNota.Source = ImageSource.FromResource(resourceDo, typeof(QualANota).GetTypeInfo().Assembly) ;
+
+            carregaFase();
+
+            if (Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase] != 0)
+            {
+                progressLesson.Progress = (0.25 * (Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]));
+            }
+
+           
+        }
+
+        void CarregaLicoes()
+        {
+            dicLicoes.Add(0, new LicaoQualANota($"MusicPrototype.Images.Notas.DoGraveClaveSol.jpg", "btnDo"));
+            dicLicoes.Add(1, new LicaoQualANota($"MusicPrototype.Images.Notas.DoClaveSol.jpg", "btnDo"));
+            dicLicoes.Add(2, new LicaoQualANota($"MusicPrototype.Images.Notas.ReClaveSol.jpg", "btnRe"));
+            dicLicoes.Add(3, new LicaoQualANota($"MusicPrototype.Images.Notas.ReGraveClaveSol.jpg", "btnRe"));
+            dicLicoes.Add(4, new LicaoQualANota($"MusicPrototype.Images.Notas.MiClaveSol.jpg", "btnMi"));
+            dicLicoes.Add(5, new LicaoQualANota($"MusicPrototype.Images.Notas.MiMedioClaveSol.jpg", "btnMi"));
+            dicLicoes.Add(6, new LicaoQualANota($"MusicPrototype.Images.Notas.FaClaveSol.jpg", "btnfa"));
+            dicLicoes.Add(7, new LicaoQualANota($"MusicPrototype.Images.Notas.FaMedioClaveSol.jpg", "btnFa"));
+            dicLicoes.Add(8, new LicaoQualANota($"MusicPrototype.Images.Notas.SolAgudoClaveSol.jpg", "btnSol"));
+            dicLicoes.Add(9, new LicaoQualANota($"MusicPrototype.Images.Notas.LaClaveSol.jpg", "btnLa"));
+            dicLicoes.Add(10, new LicaoQualANota($"MusicPrototype.Images.Notas.SiClaveSol.jpg", "btnSi"));
+
+            for (int i = 0; i < 4; i++)
+            {
+                int indice = RandomNumber(0, dicLicoes.Count);
+                if (!licoesAExecutar.Contains(dicLicoes[indice]))
+                {
+                    licoesAExecutar.Add(dicLicoes[indice]);
+                }
+                else
+                    i--;
+
+            }
+        }
+
+        void carregaFase()
+        {
+            if (Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase] < 4)
+            {
+                imgNota.Source = ImageSource.FromResource(licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]].Imagem, typeof(QualANota).GetTypeInfo().Assembly);
+                validado = false;
+                btnDo.BackgroundColor = btnRe.BackgroundColor = btnMi.BackgroundColor = btnFa.BackgroundColor = btnSol.BackgroundColor = btnLa.BackgroundColor = btnSi.BackgroundColor = Color.Gray;
+                stcResult.BackgroundColor = Color.White;
+                btnButton5.Text = "Verificar";
+            }
+            else
+            {
+                Singleton.Instance.dadosJogador.adcionaNovaFase(this.numeroFase);
+                Singleton.Instance.Save();
+                LevelPage pagina = new LevelPage();
+                Navigation.PushModalAsync(pagina);
+            }
+
         }
 
         private void btnButton5_Clicked(object sender, EventArgs e)
         {
-            if (ValidaResposta())
+            AtualizaProgresso();
+        }
+
+        private void AtualizaProgresso()
+        {
+            if (!validado)
             {
-                lblResultado.Text = "Correto!!!";
-                stcResult.BackgroundColor = Color.LightGreen;
+                if (ValidaResposta())
+                {
+                    progressLesson.Progress = (0.25 * (Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase] + 1));
+                    lblResultado.Text = "Correto!!!";
+                    stcResult.BackgroundColor = Color.LightGreen;
+                }
+                else
+                {
+                    lblResultado.Text = "Incorreto...";
+                    stcResult.BackgroundColor = Color.PaleVioletRed;
+                }
+                btnButton5.Text = "Coninuar";
             }
             else
             {
-                lblResultado.Text = "Incorreto...";
-                stcResult.BackgroundColor = Color.PaleVioletRed;
+                Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]++;
+                carregaFase();
             }
-            btnButton5.Text = "Coninuar";
+
         }
 
         private bool ValidaResposta()
         {
-            if (resposta == "btnDo")
-                return true;
-            else
-                return false;
+            validado = true;
+            return resposta == licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]].Respostacorreta;
         }
 
         private void btnButton_Clicked(object sender, EventArgs e)
@@ -77,6 +130,24 @@ namespace MusicPrototype
         {
             LevelPage pagina = new LevelPage();
             Navigation.PushModalAsync(pagina);
+        }
+
+        public int RandomNumber(int min, int max)
+        {
+            Random random = new Random();
+            return random.Next(min, max);
+        }
+    }
+
+    class LicaoQualANota
+    {
+        public string Imagem { get; set; }
+        public string Respostacorreta { get; set; }
+
+        public LicaoQualANota(string Imagem, string Respostacorreta)
+        {
+            this.Imagem = Imagem;
+            this.Respostacorreta = Respostacorreta;
         }
     }
 }
