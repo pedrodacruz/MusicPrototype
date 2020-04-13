@@ -40,7 +40,7 @@
                     Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand"
                     VerticalOptions="Start" Clicked="ImageButton_Clicked_1"/>
             <ProgressBar x:Name="progressLesson" Progress="0.1" Grid.Row="0" Grid.ColumnSpan="5" Grid.Column="1" ProgressColor="GreenYellow" />
-            <Label Text="Escreva o que escutar" Grid.Row="1" Grid.ColumnSpan="6" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="Large"/>
+            <Label x:Name="lblTituloLicao" Text="Escreva o que escutar" Grid.Row="1" Grid.ColumnSpan="6" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="Large"/>
             <ImageButton Source="{local:ImageResource MusicPrototype.Images.SomButton.jpg}"
                     Grid.Row="2" Grid.Column="0" HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="6" 
                     VerticalOptions="Center" Clicked="ImageButton_Clicked"/>
