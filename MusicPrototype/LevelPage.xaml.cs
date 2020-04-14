@@ -61,6 +61,12 @@ namespace MusicPrototype
                 OqueVoceOuve pagina = new OqueVoceOuve(3);
                 Navigation.PushModalAsync(pagina);
             }
+
+            if (((ImageButton)sender).StyleId == "Fase5")
+            {
+                QualANota pagina = new QualANota(4);
+                Navigation.PushModalAsync(pagina);
+            }
         }
 
         void loadProgress()
@@ -75,8 +81,12 @@ namespace MusicPrototype
                     }
                     if (item.Key > 0)
                     {
-                        ((ImageButton)this.FindByName(string.Format("Fase{0}", item.Key+1))).Source = ImageSource.FromResource("MusicPrototype.Images.ActiveSemibreve.jpg", typeof(LevelPage).GetTypeInfo().Assembly);
-                        ((ImageButton)this.FindByName(string.Format("Fase{0}", item.Key + 1))).IsEnabled = true;
+                        if(item.Key + 1 < Singleton.Instance.dadosJogador.ProgressoFase.Count )
+                        {
+                            ((ImageButton)this.FindByName(string.Format("Fase{0}", item.Key + 1))).Source = ImageSource.FromResource("MusicPrototype.Images.ActiveSemibreve.jpg", typeof(LevelPage).GetTypeInfo().Assembly);
+                            ((ImageButton)this.FindByName(string.Format("Fase{0}", item.Key + 1))).IsEnabled = true;
+                        }
+                        
                     }
 
                 }
