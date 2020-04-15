@@ -38,7 +38,7 @@ namespace MusicPrototype
 
         void CarregaLicoes()
         {
-            if(numeroFase<2)
+            if(numeroFase<=2)
             {
                 dicLicoes.Add(0, new LicaoQualANota($"MusicPrototype.Images.Notas.DoGraveClaveSol.jpg", "btnDo"));
                 dicLicoes.Add(1, new LicaoQualANota($"MusicPrototype.Images.Notas.DoClaveSol.jpg", "btnDo"));

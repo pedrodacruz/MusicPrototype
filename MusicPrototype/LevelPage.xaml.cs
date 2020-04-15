@@ -43,13 +43,20 @@ namespace MusicPrototype
             {
                 if (indiceBotao <= Singleton.Instance.dadosJogador.ProgressoFase.Count - 1 && Singleton.Instance.dadosJogador.ProgressoFase.Count != indiceBotao)
                 {
-                    bool answer = await DisplayAlert("Atenção!", "Voê gostaria de rejogar esta fase?", "Sim", "Não");
-                    if (answer)
+                    if(Singleton.Instance.dadosJogador.ProgressoFase[indiceBotao - 1]>=4)
                     {
-                        await AbreATela(sender);
+                        bool answer = await DisplayAlert("Atenção!", "Voê gostaria de rejogar esta fase?", "Sim", "Não");
+                        if (answer)
+                        {
+                            Singleton.Instance.dadosJogador.ProgressoFase[indiceBotao - 1] = 0;
+                            await AbreATela(sender);
+                        }
+                        else
+                            return;
                     }
                     else
-                        return;
+                        await AbreATela(sender);
+
                 }
             }
 
@@ -58,36 +65,39 @@ namespace MusicPrototype
 
         private async Task AbreATela(object sender)
         {
+            ContentPage pagina = new ContentPage();
             if (((ImageButton)sender).StyleId == "Fase1")
             {
 
-                OqueVoceOuve pagina = new OqueVoceOuve(0);
-                await Navigation.PushModalAsync(pagina);
+                pagina = new OqueVoceOuve(0);
+                //await Navigation.PushModalAsync(pagina);
             }
 
             if (((ImageButton)sender).StyleId == "Fase2")
             {
-                Ditado pagina = new Ditado(1);
-                await Navigation.PushModalAsync(pagina);
+                pagina = new Ditado(1);
+                //await Navigation.PushModalAsync(pagina);
             }
 
             if (((ImageButton)sender).StyleId == "Fase3")
             {
-                QualANota pagina = new QualANota(2);
-                await Navigation.PushModalAsync(pagina);
+                pagina = new QualANota(2);
+                //await Navigation.PushModalAsync(pagina);
             }
 
             if (((ImageButton)sender).StyleId == "Fase4")
             {
-                OqueVoceOuve pagina = new OqueVoceOuve(3);
-                await Navigation.PushModalAsync(pagina);
+                pagina = new OqueVoceOuve(3);
+                //await Navigation.PushModalAsync(pagina);
             }
 
             if (((ImageButton)sender).StyleId == "Fase5")
             {
-                QualANota pagina = new QualANota(4);
-                await Navigation.PushModalAsync(pagina);
+                pagina = new QualANota(4);
+                //await Navigation.PushModalAsync(pagina);
             }
+
+            await Navigation.PushModalAsync(pagina);
         }
 
         void loadProgress()
