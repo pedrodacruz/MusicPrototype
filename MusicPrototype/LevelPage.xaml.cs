@@ -43,7 +43,7 @@ namespace MusicPrototype
             {
                 if (indiceBotao <= Singleton.Instance.dadosJogador.ProgressoFase.Count - 1 && Singleton.Instance.dadosJogador.ProgressoFase.Count != indiceBotao)
                 {
-                    bool answer = await DisplayAlert("Atenção!", "Voê gostaria de rejogar esta fase?", "Yes", "No");
+                    bool answer = await DisplayAlert("Atenção!", "Voê gostaria de rejogar esta fase?", "Sim", "Não");
                     if (answer)
                     {
                         await AbreATela(sender);
