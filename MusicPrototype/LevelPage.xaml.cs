@@ -31,41 +31,62 @@ namespace MusicPrototype
             Navigation.PushModalAsync(pagina);
         }
 
-        private void ImageButton_Clicked_2(object sender, EventArgs e)
+        async void ImageButton_Clicked_2(object sender, EventArgs e)
         {
-            if(((ImageButton)sender).StyleId == "Fase1")
+            int indiceBotao = Convert.ToInt32(((ImageButton)sender).StyleId.Substring(4));
+            if (Singleton.Instance.dadosJogador.ProgressoFase == null)
             {
-                if (Singleton.Instance.dadosJogador.ProgressoFase == null)
+                Singleton.Instance.dadosJogador.ProgressoFase = new Dictionary<int, int>();
+                Singleton.Instance.dadosJogador.ProgressoFase.Add(0, 0);
+            }
+            else
+            {
+                if (indiceBotao <= Singleton.Instance.dadosJogador.ProgressoFase.Count - 1 && Singleton.Instance.dadosJogador.ProgressoFase.Count != indiceBotao)
                 {
-                    Singleton.Instance.dadosJogador.ProgressoFase = new Dictionary<int, int>();
-                    Singleton.Instance.dadosJogador.ProgressoFase.Add(0, 0);
+                    bool answer = await DisplayAlert("Atenção!", "Voê gostaria de rejogar esta fase?", "Yes", "No");
+                    if (answer)
+                    {
+                        await AbreATela(sender);
+                    }
+                    else
+                        return;
                 }
+            }
+
+            await AbreATela(sender);
+        }
+
+        private async Task AbreATela(object sender)
+        {
+            if (((ImageButton)sender).StyleId == "Fase1")
+            {
+
                 OqueVoceOuve pagina = new OqueVoceOuve(0);
-                Navigation.PushModalAsync(pagina);
+                await Navigation.PushModalAsync(pagina);
             }
 
             if (((ImageButton)sender).StyleId == "Fase2")
             {
                 Ditado pagina = new Ditado(1);
-                Navigation.PushModalAsync(pagina);
+                await Navigation.PushModalAsync(pagina);
             }
 
             if (((ImageButton)sender).StyleId == "Fase3")
             {
                 QualANota pagina = new QualANota(2);
-                Navigation.PushModalAsync(pagina);
+                await Navigation.PushModalAsync(pagina);
             }
 
             if (((ImageButton)sender).StyleId == "Fase4")
             {
                 OqueVoceOuve pagina = new OqueVoceOuve(3);
-                Navigation.PushModalAsync(pagina);
+                await Navigation.PushModalAsync(pagina);
             }
 
             if (((ImageButton)sender).StyleId == "Fase5")
             {
                 QualANota pagina = new QualANota(4);
-                Navigation.PushModalAsync(pagina);
+                await Navigation.PushModalAsync(pagina);
             }
         }
 
