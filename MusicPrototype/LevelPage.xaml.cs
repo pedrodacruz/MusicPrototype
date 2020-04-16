@@ -36,8 +36,7 @@ namespace MusicPrototype
             int indiceBotao = Convert.ToInt32(((ImageButton)sender).StyleId.Substring(4));
             if (Singleton.Instance.dadosJogador.ProgressoFase == null)
             {
-                Singleton.Instance.dadosJogador.ProgressoFase = new Dictionary<int, int>();
-                Singleton.Instance.dadosJogador.ProgressoFase.Add(0, 0);
+                Singleton.Instance.novoJogo();
             }
             else
             {
@@ -112,7 +111,7 @@ namespace MusicPrototype
                     }
                     if (item.Key > 0)
                     {
-                        if(item.Key + 1 < Singleton.Instance.dadosJogador.ProgressoFase.Count )
+                        if(item.Key + 1 <= Singleton.Instance.dadosJogador.ProgressoFase.Count )
                         {
                             ((ImageButton)this.FindByName(string.Format("Fase{0}", item.Key + 1))).Source = ImageSource.FromResource("MusicPrototype.Images.ActiveSemibreve.jpg", typeof(LevelPage).GetTypeInfo().Assembly);
                             ((ImageButton)this.FindByName(string.Format("Fase{0}", item.Key + 1))).IsEnabled = true;

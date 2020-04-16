@@ -11,6 +11,7 @@ namespace MusicPrototype
         public string Meta;
         public string Nome;
         public Dictionary<int, int> ProgressoFase;
+        public Dictionary<int, int> ProgressoConquistas;
 
         public void adcionaNovaFase(int faseAtual)
         {
@@ -24,5 +25,7 @@ namespace MusicPrototype
                 ProgressoFase = new Dictionary<int, int>();
             }
         }
+
+
     }
 }

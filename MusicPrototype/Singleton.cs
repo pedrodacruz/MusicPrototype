@@ -44,6 +44,7 @@ namespace MusicPrototype
             data.Meta = Singleton.Instance.dadosJogador.Meta;
             data.Nome = Singleton.Instance.dadosJogador.Nome;
             data.ProgressoFase = Singleton.Instance.dadosJogador.ProgressoFase;
+            data.ProgressoConquistas = Singleton.Instance.dadosJogador.ProgressoConquistas;
 
             //Obtenção do texto a partir da classe jason
             string dataAsJson = JsonConvert.SerializeObject(data);
@@ -69,10 +70,51 @@ namespace MusicPrototype
                 Singleton.Instance.dadosJogador.Meta = data.Meta;
                 Singleton.Instance.dadosJogador.Nome = data.Nome;
                 Singleton.Instance.dadosJogador.ProgressoFase = data.ProgressoFase;
+                Singleton.Instance.dadosJogador.ProgressoConquistas = data.ProgressoConquistas;
 
 
             }
 
+        }
+
+        public void IncrementaProgresso(int numeroFase)
+        {
+            Singleton.Instance.dadosJogador.ProgressoFase[numeroFase]++;
+            IncrementaProgressoConquistas();
+        }
+
+        private void IncrementaProgressoConquistas()
+        {
+            if (Singleton.Instance.dadosJogador.ProgressoConquistas[0] < 4)
+            {
+                Singleton.Instance.dadosJogador.ProgressoConquistas[0]++;
+            }
+            if (Singleton.Instance.dadosJogador.ProgressoConquistas[1] < 12)
+            {
+                Singleton.Instance.dadosJogador.ProgressoConquistas[1]++;
+            }
+        }
+
+        public void Zeracontagemconquistas()
+        {
+            if (Singleton.Instance.dadosJogador.ProgressoConquistas[0] < 4)
+            {
+                Singleton.Instance.dadosJogador.ProgressoConquistas[0] = 0;
+            }
+
+            if (Singleton.Instance.dadosJogador.ProgressoConquistas[1] < 12)
+            {
+                Singleton.Instance.dadosJogador.ProgressoConquistas[1] = 0;
+            }
+        }
+
+        public void novoJogo()
+        {
+            Singleton.Instance.dadosJogador.ProgressoFase = new Dictionary<int, int>();
+            Singleton.Instance.dadosJogador.ProgressoFase.Add(0, 0);
+            Singleton.Instance.dadosJogador.ProgressoConquistas = new Dictionary<int, int>();
+            Singleton.Instance.dadosJogador.ProgressoConquistas.Add(0, 0);
+            Singleton.Instance.dadosJogador.ProgressoConquistas.Add(1, 0);
         }
     }
 }

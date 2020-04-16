@@ -118,6 +118,7 @@ namespace MusicPrototype
                 }
                 else
                 {
+                    Singleton.Instance.Zeracontagemconquistas();
                     lblResultado.Text = "Incorreto...";
                     stcResult.BackgroundColor = Color.PaleVioletRed;
                 }
@@ -125,7 +126,7 @@ namespace MusicPrototype
             }
             else
             {
-                Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]++;
+                Singleton.Instance.IncrementaProgresso(numeroFase);
                 carregaFase();
             }
 
