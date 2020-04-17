@@ -13,10 +13,22 @@ namespace MusicPrototype
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LevelPage : ContentPage
     {
+        INotificationManager notificationManager;
+        int notificationNumber = 0;
         public LevelPage()
         {
             InitializeComponent();
             loadProgress();
+
+            notificationManager = DependencyService.Get<INotificationManager>();
+            notificationManager.NotificationReceived += (sender, eventArgs) =>
+            {
+                var evtData = (NotificationEventArgs)eventArgs;
+                ShowNotification(evtData.Title, evtData.Message);
+            };
+
+            //Notificação:
+            notificationManager.ScheduleNotification("Título", "essa é umamensagem");
         }
 
         private void ImageButton_Clicked(object sender, EventArgs e)
@@ -124,6 +136,17 @@ namespace MusicPrototype
             }
             
             
+        }
+
+        void ShowNotification(string title, string message)
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                var msg = new Label()
+                {
+                    Text = $"Notification Received:\nTitle: {title}\nMessage: {message}"
+                };
+            });
         }
     }
 }
