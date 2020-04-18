@@ -3,12 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Xamarin.Forms;
 
 namespace MusicPrototype
 {
     public sealed class Singleton
     {
+        INotificationManager notificationManager;
         public PlayerData dadosJogador = new PlayerData();
+        public DateTime tempoInicioJogo;
 
         private static Singleton instance = null;
         // Explicit static constructor to tell C# compiler  
@@ -19,9 +22,20 @@ namespace MusicPrototype
         }
         private Singleton()
         {
+            notificationManager = DependencyService.Get<INotificationManager>();
+            if (notificationManager != null)
+            {
+                notificationManager.NotificationReceived += (sender, eventArgs) =>
+                {
+                    var evtData = (NotificationEventArgs)eventArgs;
+                    ShowNotification(evtData.Title, evtData.Message);
+                };
+            }
         }
+
         public static Singleton Instance
         {
+
             get
             {
                 if (instance == null)
@@ -51,7 +65,40 @@ namespace MusicPrototype
 
             //Gravação do arquivo jason no destino
             File.WriteAllText(destination, dataAsJson);
+
         }
+
+        public void VerificaTempoJogador()
+        {
+            double minutos = DateTime.Now.Subtract(tempoInicioJogo).TotalMinutes;
+            int valorMinimo = 0;
+            switch (Singleton.Instance.dadosJogador.Meta)
+            {
+                case "btn5minutos":
+                    valorMinimo = 5;
+                    break;
+                case "btn10minutos":
+                    valorMinimo = 10;
+                    break;
+                case "btn15minutos":
+                    valorMinimo = 15;
+                    break;
+                case "btn20minutos":
+                    valorMinimo = 20;
+                    break;
+                default:
+                    break;
+            }
+
+            if (minutos < valorMinimo && notificationManager!= null)
+                notificationManager.ScheduleNotification("Atenção", String.Format("Faltam {0} para você alcançar a sua meta!", minutos));
+
+        }
+
+        //public void EnviaNotificacao()
+        //{
+          
+        //}
         //Método utilizado para carregar o arquivo onde os dados foram salvos
         public void Load()
         {
@@ -75,6 +122,22 @@ namespace MusicPrototype
 
             }
 
+            //Faz a verificação do dia
+            if(tempoInicioJogo.Date.DayOfYear != DateTime.Now.Date.DayOfYear)
+            {
+                tempoInicioJogo = DateTime.Now;
+            }
+        }
+        void ShowNotification(string title, string message)
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                var msg = new Label()
+                {
+                    Text = $"Notification Received:\nTitle: {title}\nMessage: {message}"
+                };
+                App.Current.MainPage.DisplayAlert(title, message, "OK", "Cancel");
+            });
         }
 
         public void IncrementaProgresso(int numeroFase)
