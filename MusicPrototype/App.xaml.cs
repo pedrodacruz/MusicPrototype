@@ -1,20 +1,18 @@
 ﻿using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using Plugin.SimpleAudioPlayer;
-using System.IO;
-using System.Reflection;
-using System.Json;
-using Newtonsoft.Json;
+using Xamarin.Essentials;
 
 namespace MusicPrototype
 {
     public partial class App : Application
     {
-
+        const int smallWightResolution = 768;
+        const int smallHeightResolution = 1280;
         public App()
         {
             InitializeComponent();
+
+            LoadStyles();
 
             Singleton.Instance.Load();
             Singleton.Instance.tempoInicioJogo = DateTime.Now;
@@ -37,6 +35,31 @@ namespace MusicPrototype
 
         protected override void OnResume()
         {
+        }
+
+        void LoadStyles()
+        {
+            if (IsASmallDevice())
+            {
+                dictionary.MergedDictionaries.Add(SmallDevicesStyle.SharedInstance);
+            }
+            else
+            {
+                dictionary.MergedDictionaries.Add(GeneralDevicesStyle.SharedInstance);
+            }
+        }
+
+        public static bool IsASmallDevice()
+        {
+            // Get Metrics
+            var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
+
+            // Width (in pixels)
+            var width = mainDisplayInfo.Width;
+
+            // Height (in pixels)
+            var height = mainDisplayInfo.Height;
+            return (width <= smallWightResolution && height <= smallHeightResolution);
         }
     }
 }
