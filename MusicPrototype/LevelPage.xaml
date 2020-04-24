@@ -48,21 +48,20 @@
         <StackLayout>
             <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="100" />
-                    <RowDefinition Height="100" />
+                    <RowDefinition Height="75" />
+                    <RowDefinition Height="75" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="75" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="75" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="15" />
                     <RowDefinition Height="30" />
-                    <RowDefinition Height="100" />
-                    <RowDefinition Height="30" />
-                    <RowDefinition Height="100" />
-                    <RowDefinition Height="30" />
-                    <RowDefinition Height="30" />
-                    <RowDefinition Height="60" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-
                 <ImageButton x:Name="Fase1" Source="{local:ImageResource MusicPrototype.Images.ActiveSemibreve.jpg}"
                     Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand" Clicked="ImageButton_Clicked_2"/>
