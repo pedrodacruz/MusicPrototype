@@ -29,6 +29,10 @@ namespace MusicPrototype
 
         public void carregaProgresso()
         {
+            if (Singleton.Instance.dadosJogador.ProgressoFase == null)
+            {
+                Singleton.Instance.novoJogo();
+            }
             StatusNaMosca.Text = ((int)Singleton.Instance.dadosJogador.ProgressoConquistas[1] / 4).ToString() + "/1";
             StatusSuperacaoTotal.Text = ((int)Singleton.Instance.dadosJogador.ProgressoConquistas[1] / 4).ToString() + "/3";
             progressNaMosca.Progress = ((double)Singleton.Instance.dadosJogador.ProgressoConquistas[0])/ 4;
