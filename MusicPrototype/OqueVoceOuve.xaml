@@ -12,21 +12,21 @@
                 <!--Botão Sair + Barra de progresso-->
                 <RowDefinition Height="20" />
                 <!--Titulo da Questão-->
-                <RowDefinition Height="100" />
-
-                <RowDefinition Height="200" />
-
                 <RowDefinition Height="50" />
 
-                <RowDefinition Height="50" />
+                <RowDefinition Height="90" />
 
-                <RowDefinition Height="50" />
+                <RowDefinition Height="37" />
 
-                <RowDefinition Height="50" />
+                <RowDefinition Height="37" />
 
-                <RowDefinition Height="50" />
+                <RowDefinition Height="37" />
 
-                <RowDefinition Height="100" />
+                <RowDefinition Height="37" />
+
+                <RowDefinition Height="37" />
+
+                <RowDefinition Height="37" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -44,10 +44,10 @@
             <ImageButton Source="{local:ImageResource MusicPrototype.Images.SomButton.jpg}"
                     Grid.Row="2" Grid.Column="0" HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="6" 
                     VerticalOptions="Center" Clicked="ImageButton_Clicked"/>
-            <Button x:Name="btnButton1" Text="Som Musical"  Grid.Row="3" Grid.ColumnSpan="6" BackgroundColor="Gray" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
-            <Button x:Name="btnButton2" Text="Som Não-Musical"  Grid.Row="4" Grid.ColumnSpan="6" BackgroundColor="Gray" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
-            <Button x:Name="btnButton3" Text="Som Grave"  Grid.Row="5" Grid.ColumnSpan="6" IsVisible="False" BackgroundColor="Gray" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
-            <Button x:Name="btnButton4" Text="Som Agudo"  Grid.Row="6" Grid.ColumnSpan="6" IsVisible="False" BackgroundColor="Gray" TextColor="White" FontSize="Large" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
+            <Button x:Name="btnButton1" Text="Som Musical"  Grid.Row="3" Grid.ColumnSpan="6" BackgroundColor="Gray" TextColor="White" FontSize="Small" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
+            <Button x:Name="btnButton2" Text="Som Não-Musical"  Grid.Row="4" Grid.ColumnSpan="6" BackgroundColor="Gray" TextColor="White" FontSize="Small" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
+            <Button x:Name="btnButton3" Text="Som Grave"  Grid.Row="5" Grid.ColumnSpan="6" IsVisible="False" BackgroundColor="Gray" TextColor="White" FontSize="Small" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
+            <Button x:Name="btnButton4" Text="Som Agudo"  Grid.Row="6" Grid.ColumnSpan="6" IsVisible="False" BackgroundColor="Gray" TextColor="White" FontSize="Small" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
             <StackLayout x:Name="stcResult" Orientation="Vertical"  Grid.Row="7" Grid.ColumnSpan="6" BackgroundColor="White" Grid.RowSpan="2">
                 <Label x:Name="lblResultado" Text="" FontFamily="Comic Sans MS" TextColor="White" FontSize="Large"  HorizontalTextAlignment="Center"></Label>
                 <Button x:Name="btnButton5" Text="Verificar"  BackgroundColor="LightBlue" TextColor="White" FontSize="Large" CornerRadius="15" VerticalOptions="End" Clicked="btnButton5_Clicked"></Button>
