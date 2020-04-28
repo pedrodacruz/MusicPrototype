@@ -14,6 +14,9 @@ namespace MusicPrototype
 {
     public partial class Ditado : ContentPage
     {
+        int xValue = 70;
+        int yValue = 50;
+
         ISimpleAudioPlayer player;
 
         bool validado = false;
@@ -72,8 +75,8 @@ namespace MusicPrototype
             {
                 SKBitmap bitmap = SKBitmap.Decode(stream);
 
-                position.X = 70;
-                position.Y = 50;
+                position.X = xValue+150;
+                position.Y = yValue;
 
                 for (int i = 0; i < 6; i++)
                 {
@@ -82,14 +85,14 @@ namespace MusicPrototype
                     {
                         Matrix = SKMatrix.MakeTranslation(position.X, position.Y),
                     });
-                    position.X += 70;
+                    position.X += xValue;
                 }
             }
 
             //Barra horizontal
             using (Stream stream = assembly.GetManifestResourceStream(resourceBarraHorizontal))
             {
-                position.X = 200;
+                position.X = 350;
                 position.Y = 179;
                 SKBitmap bitmap = SKBitmap.Decode(stream);
                 bitmapCollection.Add(new TouchManipulationBitmap(bitmap)
@@ -101,8 +104,8 @@ namespace MusicPrototype
             //Barra horizontal (invisíveis)
             using (Stream stream = assembly.GetManifestResourceStream(resourceBarraHorizontal))
             {
-                position.X = 70;
-                position.Y = 50;
+                position.X = xValue+150;
+                position.Y = yValue;
                 SKBitmap bitmap = SKBitmap.Decode(stream);
                 for (int i = 0; i < 5; i++)
                 {
@@ -111,7 +114,7 @@ namespace MusicPrototype
                     {
                         Matrix = SKMatrix.MakeTranslation(position.X, position.Y),
                     });
-                    position.X += 70;
+                    position.X += xValue;
                 }
             }
         }
@@ -284,7 +287,7 @@ namespace MusicPrototype
             SKPoint position = new SKPoint();
             using (Stream stream = assembly.GetManifestResourceStream(resourceBarraHorizontal))
             {
-                position.X = 200;
+                position.X = 350;
                 position.Y = 179;
                 SKBitmap bitmap3 = SKBitmap.Decode(stream);
                 bitmapCollection.Add(new TouchManipulationBitmap(bitmap3)
@@ -304,6 +307,7 @@ namespace MusicPrototype
             //bitmap.Paint(canvas);
             foreach (TouchManipulationBitmap bitmap in bitmapCollection)
             {
+
                 bitmap.Paint(canvas);
             }
 
@@ -341,7 +345,7 @@ namespace MusicPrototype
                 //Verifica todas as posições estão corretas
                 foreach (var item in VisiblebitmapCollection)
                 {
-                    if(!licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]].valoresRespostas.Contains((int)item.Matrix.TransX / 70))
+                    if(!licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]].valoresRespostas.Contains((int)item.Matrix.TransX / xValue))
                         return false;
                 }
                 return true;
