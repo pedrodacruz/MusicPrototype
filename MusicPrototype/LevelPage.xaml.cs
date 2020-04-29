@@ -41,7 +41,7 @@ namespace MusicPrototype
 
         private void ImageButton_Clicked_1(object sender, EventArgs e)
         {
-            PageInicial pagina = new PageInicial();
+            PageInicial pagina = new PageInicial(false);
             Navigation.PushModalAsync(pagina);
         }
 

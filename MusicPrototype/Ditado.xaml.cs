@@ -194,8 +194,9 @@ namespace MusicPrototype
             {
                 Singleton.Instance.dadosJogador.adcionaNovaFase(this.numeroFase);
                 Singleton.Instance.Save();
-                LevelPage pagina = new LevelPage();
-                Navigation.PushModalAsync(pagina);
+                //LevelPage pagina = new LevelPage();
+                //Navigation.PushModalAsync(pagina);
+                Navigation.PopModalAsync();
             }
 
         }
@@ -358,8 +359,9 @@ namespace MusicPrototype
 
         private void ImageButton_Clicked_1(object sender, EventArgs e)
         {
-            LevelPage pagina = new LevelPage();
-            Navigation.PushModalAsync(pagina);
+            Navigation.PopModalAsync();
+            //LevelPage pagina = new LevelPage();
+            //Navigation.PushModalAsync(pagina);
         }
     }
 

@@ -6,6 +6,7 @@ using System.IO;
 using System.Reflection;
 using System.Json;
 using Newtonsoft.Json;
+using SkiaSharp;
 
 namespace MusicPrototype
 {
@@ -13,9 +14,11 @@ namespace MusicPrototype
     public partial class PageInicial : ContentPage
     {
         ISimpleAudioPlayer player;
+        bool isInicial = false;
         //PlayerData playerData = new PlayerData();
-        public PageInicial()
+        public PageInicial(bool inicial)
         {
+            isInicial = inicial;
             player = CrossSimpleAudioPlayer.Current;
 
             player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
@@ -41,8 +44,16 @@ namespace MusicPrototype
             Singleton.Instance.Save();
             player.Play();
 
-            LevelPage pagina = new LevelPage();
-            Navigation.PushModalAsync(pagina);
+            if(isInicial)
+            {
+                LevelPage pagina = new LevelPage();
+                Navigation.PushModalAsync(pagina);
+            }
+            else
+            {
+                Navigation.PopModalAsync();
+            }
+            
         }
 
         Stream GetStreamFromFile(string filename)
@@ -67,8 +78,15 @@ namespace MusicPrototype
 
         private void ImageButton_Clicked(object sender, EventArgs e)
         {
-            LevelPage pagina = new LevelPage();
-            Navigation.PushModalAsync(pagina);
+            if (isInicial)
+            {
+                LevelPage pagina = new LevelPage();
+                Navigation.PushModalAsync(pagina);
+            }
+            else
+            {
+                Navigation.PopModalAsync();
+            }
         }
     }
 

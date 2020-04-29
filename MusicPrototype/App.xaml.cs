@@ -20,7 +20,7 @@ namespace MusicPrototype
             if (Singleton.Instance.dadosJogador.Nome != null)
                 MainPage = new LevelPage();//PageInicial();//Perfil(); // QualANota();//OqueVoceOuve();//Ditado();//
             else
-                MainPage = new PageInicial();
+                MainPage = new PageInicial(true);
         }
 
         protected override void OnStart()

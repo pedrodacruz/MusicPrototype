@@ -23,8 +23,9 @@ namespace MusicPrototype
 
         private void ImageButton_Clicked(object sender, EventArgs e)
         {
-            LevelPage pagina = new LevelPage();
-            Navigation.PushModalAsync(pagina);
+            //LevelPage pagina = new LevelPage();
+            //Navigation.PushModalAsync(pagina);
+            Navigation.PopModalAsync();
         }
 
         public void carregaProgresso()
