@@ -51,6 +51,7 @@ namespace MusicPrototype
             }
             else
             {
+                Singleton.Instance.abrindoTela = false;
                 Navigation.PopModalAsync();
             }
             
@@ -85,6 +86,7 @@ namespace MusicPrototype
             }
             else
             {
+                Singleton.Instance.abrindoTela = false;
                 Navigation.PopModalAsync();
             }
         }

@@ -95,8 +95,7 @@ namespace MusicPrototype
             {
                 Singleton.Instance.dadosJogador.adcionaNovaFase(this.numeroFase);
                 Singleton.Instance.Save();
-                //LevelPage pagina = new LevelPage();
-                //Navigation.PushModalAsync(pagina);
+                Singleton.Instance.abrindoTela = false;
                 Navigation.PopModalAsync();
             }
 
@@ -148,8 +147,7 @@ namespace MusicPrototype
 
         private void ImageButton_Clicked(object sender, EventArgs e)
         {
-            //LevelPage pagina = new LevelPage();
-            //Navigation.PushModalAsync(pagina);
+            Singleton.Instance.abrindoTela = false;
             Navigation.PopModalAsync();
         }
 

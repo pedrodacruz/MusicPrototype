@@ -9,6 +9,7 @@ namespace MusicPrototype
 {
     public sealed class Singleton
     {
+        public bool abrindoTela = false;
         INotificationManager notificationManager;
         public PlayerData dadosJogador = new PlayerData();
         public DateTime tempoInicioJogo;
