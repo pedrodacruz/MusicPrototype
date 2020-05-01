@@ -161,8 +161,11 @@ namespace MusicPrototype
                 if (ValidaResposta())
                 {
                     progressLesson.Progress = (0.25 * (Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase] + 1));
-                    lblResultado.Text = "Correto!!!";
+                    
                     stcResult.BackgroundColor = Color.LightGreen;
+                    lblResultado.Text = "Correto!!!";
+                    btnButton5.Text = "Coninuar";
+                    validado = true;
                 }
                 else
                 {
@@ -170,7 +173,7 @@ namespace MusicPrototype
                     lblResultado.Text = "Incorreto...";
                     stcResult.BackgroundColor = Color.PaleVioletRed;
                 }
-                btnButton5.Text = "Coninuar";
+                
             }
             else
             {
@@ -202,7 +205,6 @@ namespace MusicPrototype
 
         private bool ValidaResposta()
         {
-            this.validado = true;
             return ValidaDitado();
         }
 

@@ -112,7 +112,7 @@ namespace MusicPrototype
             }
         }
 
-        void loadProgress()
+        public void loadProgress()
         {
             if(Singleton.Instance.dadosJogador.ProgressoFase!= null)
             {
