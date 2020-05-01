@@ -61,7 +61,7 @@ namespace MusicPrototype
                 dicLicoes.Add(4, new LicaoQualANota($"MusicPrototype.Images.Notas.Suplementares.LaGraveClaveSol.jpg", "btnLa"));
                 dicLicoes.Add(5, new LicaoQualANota($"MusicPrototype.Images.Notas.Suplementares.MiAgudoClaveSol.jpg", "btnMi"));
                 dicLicoes.Add(6, new LicaoQualANota($"MusicPrototype.Images.Notas.Suplementares.MiGraveClaveSol.jpg", "btnMi"));
-                dicLicoes.Add(7, new LicaoQualANota($"MusicPrototype.Images.Notas.Suplementares.ReAgudoClaveSol.jpg", "btnFa"));
+                dicLicoes.Add(7, new LicaoQualANota($"MusicPrototype.Images.Notas.Suplementares.ReAgudoClaveSol.jpg", "btnRe"));
                 dicLicoes.Add(8, new LicaoQualANota($"MusicPrototype.Images.Notas.Suplementares.SiAgudoClaveSol.jpg", "btnSi"));
                 dicLicoes.Add(9, new LicaoQualANota($"MusicPrototype.Images.Notas.Suplementares.SiGraveClaveSol.jpg", "btnSi"));
                 dicLicoes.Add(10, new LicaoQualANota($"MusicPrototype.Images.Notas.Suplementares.SolGraveClaveSol.jpg", "btnSol"));
@@ -147,6 +147,7 @@ namespace MusicPrototype
 
         private void ImageButton_Clicked(object sender, EventArgs e)
         {
+            Singleton.Instance.Save();
             Singleton.Instance.abrindoTela = false;
             Navigation.PopModalAsync();
         }

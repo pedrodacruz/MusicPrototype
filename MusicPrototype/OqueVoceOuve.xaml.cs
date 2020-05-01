@@ -198,6 +198,7 @@ namespace MusicPrototype
 
         private void ImageButton_Clicked_1(object sender, EventArgs e)
         {
+            Singleton.Instance.Save();
             Singleton.Instance.abrindoTela = false;
             Navigation.PopModalAsync();
         }

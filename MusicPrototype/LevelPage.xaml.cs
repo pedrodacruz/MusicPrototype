@@ -17,7 +17,7 @@ namespace MusicPrototype
         public LevelPage()
         {
             InitializeComponent();
-            loadProgress();
+            //loadProgress();
         }
 
         private void ImageButton_Clicked(object sender, EventArgs e)
@@ -110,6 +110,15 @@ namespace MusicPrototype
             {
                 await Navigation.PushModalAsync(pagina);
             }
+        }
+
+        protected override void OnAppearing()
+        {
+            loadProgress();
+        }
+
+        protected override void OnDisappearing()
+        {
         }
 
         public void loadProgress()
