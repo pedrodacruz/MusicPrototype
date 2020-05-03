@@ -15,6 +15,8 @@
     <None Remove="Audio\Agua3.mp3" />
     <None Remove="Audio\Buzina1.mp3" />
     <None Remove="Audio\Descarga1.mp3" />
+    <None Remove="Audio\Ditado\1Tempo.mp3" />
+    <None Remove="Audio\Ditado\1TempoSilencio.mp3" />
     <None Remove="Audio\Ditado\Licao11.mp3" />
     <None Remove="Audio\DoAgudoPianomp3.mp3" />
     <None Remove="Audio\Doflauta.mp3" />
@@ -88,6 +90,8 @@
     <EmbeddedResource Include="Audio\Agua3.mp3" />
     <EmbeddedResource Include="Audio\Buzina1.mp3" />
     <EmbeddedResource Include="Audio\Descarga1.mp3" />
+    <EmbeddedResource Include="Audio\Ditado\1Tempo.mp3" />
+    <EmbeddedResource Include="Audio\Ditado\1TempoSilencio.mp3" />
     <EmbeddedResource Include="Audio\Ditado\Licao11.mp3" />
     <EmbeddedResource Include="Audio\DoAgudoPianomp3.mp3" />
     <EmbeddedResource Include="Audio\Doflauta.mp3" />

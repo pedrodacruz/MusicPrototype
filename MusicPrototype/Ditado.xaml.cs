@@ -7,8 +7,7 @@ using SkiaSharp;
 using SkiaSharp.Views.Forms;
 using TouchTracking;
 using System;
-
-
+using System.Threading.Tasks;
 
 namespace MusicPrototype
 {
@@ -16,8 +15,11 @@ namespace MusicPrototype
     {
         int xValue = 70;
         int yValue = 50;
+        int constantIncrement = 150;
 
         ISimpleAudioPlayer player;
+        ISimpleAudioPlayer player2;
+
 
         bool validado = false;
         Dictionary<int, LicaoDitado> dicLicoes = new Dictionary<int, LicaoDitado>();
@@ -41,10 +43,15 @@ namespace MusicPrototype
         public Ditado(int numeroFase)
         {
             this.numeroFase = numeroFase;
+
+
             player = CrossSimpleAudioPlayer.Current;
+            player2 = CrossSimpleAudioPlayer.Current;
 
             player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            player2 = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
 
+            player2.Loop = false;
             player.Loop = false;
 
             CarregaLicoes();
@@ -75,7 +82,7 @@ namespace MusicPrototype
             {
                 SKBitmap bitmap = SKBitmap.Decode(stream);
 
-                position.X = xValue+150;
+                position.X = xValue+ constantIncrement;
                 position.Y = yValue;
 
                 for (int i = 0; i < 6; i++)
@@ -104,7 +111,7 @@ namespace MusicPrototype
             //Barra horizontal (invisíveis)
             using (Stream stream = assembly.GetManifestResourceStream(resourceBarraHorizontal))
             {
-                position.X = xValue+150;
+                position.X = xValue+ constantIncrement;
                 position.Y = yValue;
                 SKBitmap bitmap = SKBitmap.Decode(stream);
                 for (int i = 0; i < 5; i++)
@@ -186,9 +193,12 @@ namespace MusicPrototype
 
         void carregaFase()
         {
+            player.Load(GetStreamFromFile($"Audio.Ditado.1TempoSilencio.mp3"));
+            player2.Load(GetStreamFromFile($"Audio.Ditado.1Tempo.mp3"));
+
             if (Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase] < 4)
             {
-                player.Load(GetStreamFromFile(licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]].Audio));
+                //player.Load(GetStreamFromFile(licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]].Audio));
                 this.validado = false;
                 stcResult.BackgroundColor = Color.White;
                 btnButton5.Text = "Verificar";
@@ -331,6 +341,25 @@ namespace MusicPrototype
 
         private void ImageButton_Clicked(object sender, EventArgs e)
         {
+            //player.Play();
+            playLicao();
+
+        }
+
+        public void playLicao()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                if(licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]].valoresRespostas.Contains(i+1))
+                {
+                    player2.Play();
+                }
+                else
+                {
+                    player.Play();
+                }
+                Task.Delay(1000).Wait();
+            }
             player.Play();
         }
 
@@ -347,7 +376,7 @@ namespace MusicPrototype
                 //Verifica todas as posições estão corretas
                 foreach (var item in VisiblebitmapCollection)
                 {
-                    if(!licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]].valoresRespostas.Contains((int)item.Matrix.TransX / xValue))
+                    if(!licoesAExecutar[Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]].valoresRespostas.Contains(((int)item.Matrix.TransX - constantIncrement) / xValue))
                         return false;
                 }
                 return true;
