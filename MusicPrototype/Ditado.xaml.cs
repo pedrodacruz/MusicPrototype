@@ -252,6 +252,19 @@ namespace MusicPrototype
                             break;
                         }
                     }
+                    //testa barras posicionadas
+                    for (int i = VisiblebitmapCollection.Count - 1; i >= 0; i--)
+                    {
+                        TouchManipulationBitmap bitmap = VisiblebitmapCollection[i];
+
+                        if (bitmap.HitTest(point))
+                        {
+                            InvisiblebitmapCollection.Add(bitmap);
+                            VisiblebitmapCollection.Remove(bitmap);
+                            canvasView.InvalidateSurface();
+                            break;
+                        }
+                    }
                     break;
 
                 case TouchActionType.Moved:
