@@ -13,6 +13,7 @@ namespace MusicPrototype
         INotificationManager notificationManager;
         public PlayerData dadosJogador = new PlayerData();
         public DateTime tempoInicioJogo;
+        private DateTime ultimaDataHoraVerificada;
 
         private static Singleton instance = null;
         // Explicit static constructor to tell C# compiler  
@@ -71,28 +72,33 @@ namespace MusicPrototype
 
         public void VerificaTempoJogador()
         {
-            double minutos = DateTime.Now.Subtract(tempoInicioJogo).TotalMinutes;
-            int valorMinimo = 0;
-            switch (Singleton.Instance.dadosJogador.Meta)
+            if(ultimaDataHoraVerificada!= null && ultimaDataHoraVerificada.DayOfYear != tempoInicioJogo.DayOfYear)
             {
-                case "btn5minutos":
-                    valorMinimo = 5;
-                    break;
-                case "btn10minutos":
-                    valorMinimo = 10;
-                    break;
-                case "btn15minutos":
-                    valorMinimo = 15;
-                    break;
-                case "btn20minutos":
-                    valorMinimo = 20;
-                    break;
-                default:
-                    break;
-            }
+                ultimaDataHoraVerificada = DateTime.Now;
+                double minutos = DateTime.Now.Subtract(tempoInicioJogo).TotalMinutes;
+                int valorMinimo = 0;
+                switch (Singleton.Instance.dadosJogador.Meta)
+                {
+                    case "btn5minutos":
+                        valorMinimo = 5;
+                        break;
+                    case "btn10minutos":
+                        valorMinimo = 10;
+                        break;
+                    case "btn15minutos":
+                        valorMinimo = 15;
+                        break;
+                    case "btn20minutos":
+                        valorMinimo = 20;
+                        break;
+                    default:
+                        break;
+                }
 
-            if (minutos < valorMinimo && notificationManager!= null)
-                notificationManager.ScheduleNotification("Atenção", String.Format("Faltam {0} para você alcançar a sua meta!", minutos));
+                if (minutos < valorMinimo && notificationManager != null)
+                    notificationManager.ScheduleNotification("Atenção", String.Format("Faltam {0} minutos para você alcançar a sua meta!", Convert.ToInt32(valorMinimo-minutos).ToString()));
+            }
+            
 
         }
 
