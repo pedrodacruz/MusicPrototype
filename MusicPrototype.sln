@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicPrototype.Android", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicPrototype.iOS", "MusicPrototype.iOS\MusicPrototype.iOS.csproj", "{68BAD0EB-0435-4898-96C4-F02643D9DA25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicPrototype", "MusicPrototype\MusicPrototype.csproj", "{D3A37BA0-48FF-4724-89C1-3EEA330C33F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicPrototype", "MusicPrototype\MusicPrototype.csproj", "{D3A37BA0-48FF-4724-89C1-3EEA330C33F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,9 +105,9 @@ Global
 		{68BAD0EB-0435-4898-96C4-F02643D9DA25}.Debug|ARM.ActiveCfg = Debug|iPhoneSimulator
 		{68BAD0EB-0435-4898-96C4-F02643D9DA25}.Debug|ARM.Build.0 = Debug|iPhoneSimulator
 		{68BAD0EB-0435-4898-96C4-F02643D9DA25}.Debug|ARM.Deploy.0 = Debug|iPhoneSimulator
-		{68BAD0EB-0435-4898-96C4-F02643D9DA25}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{68BAD0EB-0435-4898-96C4-F02643D9DA25}.Debug|iPhone.Build.0 = Debug|iPhone
-		{68BAD0EB-0435-4898-96C4-F02643D9DA25}.Debug|iPhone.Deploy.0 = Debug|iPhone
+		{68BAD0EB-0435-4898-96C4-F02643D9DA25}.Debug|iPhone.ActiveCfg = Debug|iPhoneSimulator
+		{68BAD0EB-0435-4898-96C4-F02643D9DA25}.Debug|iPhone.Build.0 = Debug|iPhoneSimulator
+		{68BAD0EB-0435-4898-96C4-F02643D9DA25}.Debug|iPhone.Deploy.0 = Debug|iPhoneSimulator
 		{68BAD0EB-0435-4898-96C4-F02643D9DA25}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
 		{68BAD0EB-0435-4898-96C4-F02643D9DA25}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
 		{68BAD0EB-0435-4898-96C4-F02643D9DA25}.Debug|iPhoneSimulator.Deploy.0 = Debug|iPhoneSimulator
