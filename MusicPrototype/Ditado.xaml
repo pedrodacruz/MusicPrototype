@@ -12,6 +12,7 @@
 
 
             <Grid.RowDefinitions>
+                <RowDefinition Height="15" />
                 <!--Botão Sair + Barra de progresso-->
                 <RowDefinition Height="20" />
                 <!--Titulo da Questão-->
@@ -49,18 +50,18 @@
             </Grid.ColumnDefinitions>
 
             <ImageButton Source="{local:ImageResource MusicPrototype.Images.ExitButton.jpg}"
-                    Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand"
+                    Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand"
                     VerticalOptions="Start" Clicked="ImageButton_Clicked_1"/>
 
-            <ProgressBar x:Name="progressLesson" Progress="0.1" Grid.Row="0" Grid.ColumnSpan="12"  Grid.Column="1" ProgressColor="GreenYellow" />
+            <ProgressBar x:Name="progressLesson" Progress="0.1" Grid.Row="1" Grid.ColumnSpan="12"  Grid.Column="1" ProgressColor="GreenYellow" />
 
-            <Label Text="Posicione a barra de acordo com a linguagem musical" Grid.Row="1" Grid.ColumnSpan="13" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="Large"/>
+            <Label Text="Posicione a barra de acordo com a linguagem musical" Grid.Row="2" Grid.ColumnSpan="13" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="Large"/>
             <ImageButton Source="{local:ImageResource MusicPrototype.Images.SomButton.jpg}"
-                    Grid.Row="2" Grid.Column="0" HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="13" 
+                    Grid.Row="3" Grid.Column="0" HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="13" 
                     VerticalOptions="Center" Clicked="ImageButton_Clicked"/>
 
             <Grid BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"
-             Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="14" Grid.RowSpan="5" >
+             Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="14" Grid.RowSpan="5" >
                 <Grid.Effects>
                     <tt:TouchEffect Capture="True"
                                 TouchAction="OnTouchEffectAction"/>
@@ -69,7 +70,7 @@
                                PaintSurface="OnCanvasViewPaintSurface" HorizontalOptions="Fill"/>
 
             </Grid>
-            <StackLayout x:Name="stcResult" Orientation="Vertical"  Grid.Row="8" Grid.ColumnSpan="14" BackgroundColor="White" Grid.RowSpan="2">
+            <StackLayout x:Name="stcResult" Orientation="Vertical"  Grid.Row="9" Grid.ColumnSpan="14" BackgroundColor="White" Grid.RowSpan="2">
                 <Label x:Name="lblResultado" Text="" FontFamily="Comic Sans MS" TextColor="White" FontSize="Large"  HorizontalTextAlignment="Center"></Label>
                 <Button x:Name="btnButton5" Text="Verificar"  BackgroundColor="LightBlue" TextColor="White" FontSize="Large" CornerRadius="15" VerticalOptions="End" Clicked="btnButton5_Clicked"></Button>
             </StackLayout>

@@ -9,7 +9,7 @@
     <ContentPage.Content>
         <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="20" />
+                <RowDefinition Height="15" />
                 <!--Botão Sair + Barra de progresso-->
                 <RowDefinition Height="20" />
                 <!--Titulo da Questão-->

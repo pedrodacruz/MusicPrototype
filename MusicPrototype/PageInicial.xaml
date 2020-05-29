@@ -10,7 +10,7 @@
     <ContentPage.Content>
          <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="20" />
+                <RowDefinition Height="15" />
                 <RowDefinition Height="30" />
                 <RowDefinition Height="75" />
                 <RowDefinition Height="30" />
