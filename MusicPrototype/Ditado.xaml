@@ -26,10 +26,10 @@
 
                 <RowDefinition Height="37" />
 
-                <RowDefinition Height="1" />
-
+                <!--<RowDefinition Height="1" />-->
+                <RowDefinition Height="*" />
                 <RowDefinition Height="17" />
-
+                
                 <RowDefinition Height="37" />
             </Grid.RowDefinitions>
 
@@ -70,7 +70,7 @@
                                PaintSurface="OnCanvasViewPaintSurface" HorizontalOptions="Fill"/>
 
             </Grid>
-            <StackLayout x:Name="stcResult" Orientation="Vertical"  Grid.Row="9" Grid.ColumnSpan="14" BackgroundColor="White" Grid.RowSpan="2">
+            <StackLayout x:Name="stcResult" Orientation="Vertical"  Grid.Row="13" Grid.ColumnSpan="14" BackgroundColor="White" Grid.RowSpan="2">
                 <Label x:Name="lblResultado" Text="" FontFamily="Comic Sans MS" TextColor="White" FontSize="Large"  HorizontalTextAlignment="Center"></Label>
                 <Button x:Name="btnButton5" Text="Verificar"  BackgroundColor="LightBlue" TextColor="White" FontSize="Large" CornerRadius="15" VerticalOptions="End" Clicked="btnButton5_Clicked"></Button>
             </StackLayout>

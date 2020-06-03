@@ -26,7 +26,9 @@
                 <RowDefinition Height="37" />
 
                 <RowDefinition Height="30" />
-
+                
+                <RowDefinition Height="*" />
+                
                 <RowDefinition Height="30" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -53,7 +55,7 @@
             <Button x:Name="btnSol" Text="Sol" Grid.ColumnSpan="2" Grid.Row="6" Grid.Column="2" BackgroundColor="Gray"  TextColor="White" FontSize="Micro" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
             <Button x:Name="btnLa"  Text="Lá"  Grid.Row="7"  Grid.Column="4" BackgroundColor="Gray"  TextColor="White" FontSize="Micro" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
             <Button x:Name="btnSi"   Text="Sí"  Grid.Row="7" Grid.Column="5" BackgroundColor="Gray"  TextColor="White" FontSize="Micro" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
-            <StackLayout x:Name="stcResult" Orientation="Vertical"  Grid.Row="8" Grid.ColumnSpan="6" BackgroundColor="White" Grid.RowSpan="2">
+            <StackLayout x:Name="stcResult" Orientation="Vertical"  Grid.Row="13" Grid.ColumnSpan="6" BackgroundColor="White" Grid.RowSpan="2">
                 <Label x:Name="lblResultado" Text="" FontFamily="Comic Sans MS" TextColor="White" FontSize="Large"  HorizontalTextAlignment="Center"></Label>
                 <Button x:Name="btnButton5" Text="Verificar"  BackgroundColor="LightBlue" TextColor="White" FontSize="Large" CornerRadius="15" VerticalOptions="End" Clicked="btnButton5_Clicked"></Button>
             </StackLayout>
