@@ -359,7 +359,7 @@ namespace MusicPrototype
 
         }
 
-        public void playLicao()
+        async public void playLicao()
         {
             for (int i = 0; i < 5; i++)
             {
@@ -371,7 +371,8 @@ namespace MusicPrototype
                 {
                     player.Play();
                 }
-                Task.Delay(1000).Wait();
+                await Task.Delay(1000);
+                //Task.Delay(1000).Wait();
             }
             player.Play();
         }
