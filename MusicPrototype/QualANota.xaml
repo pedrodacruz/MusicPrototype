@@ -9,7 +9,7 @@
     <ContentPage.Content>
         <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="15" />
+                <RowDefinition Height="20" />
                 <!--Botão Sair + Barra de progresso-->
                 <RowDefinition Height="20" />
                 <!--Titulo da Questão-->
@@ -17,19 +17,19 @@
 
                 <RowDefinition Height="90" />
 
-                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
 
-                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
 
-                <RowDefinition Height="37" />
+                <RowDefinition Height="*" />
 
-                <RowDefinition Height="37" />
+                <RowDefinition Height="*" />
 
-                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
                 
                 <RowDefinition Height="*" />
                 
-                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -44,17 +44,36 @@
                     VerticalOptions="Start" Clicked="ImageButton_Clicked"/>
             <ProgressBar x:Name="progressLesson" Progress="0.1" Grid.Row="1" Grid.ColumnSpan="5" Grid.Column="1" ProgressColor="GreenYellow"/>
             <Label Text="Identifique a nota musical" Grid.Row="2" Grid.ColumnSpan="6" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="Large"/>
-            <!--<ImageButton x:Name="btnSom"  Source="{local:ImageResource MusicPrototype.Images.SomButton.jpg}"
-                    Grid.Row="2" Grid.Column="0" HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="6" 
-                    VerticalOptions="Center" IsVisible="true"/>-->
+            
             <Image x:Name="imgNota" Source="{local:ImageResource MusicPrototype.Images.Notas.SiClaveSol.jpg}"  Grid.Row="3" Grid.ColumnSpan="6" HorizontalOptions="Fill"/>
-            <Button x:Name="btnDo"  Text="Dó"  Grid.Row="6" Grid.Column="2"  BackgroundColor="Gray" TextColor="White" FontSize="Micro" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
-            <Button x:Name="btnRe"  Text="Ré"  Grid.Row="6" Grid.Column="3" BackgroundColor="Gray" TextColor="White" FontSize="Micro" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked" ></Button>
-            <Button x:Name="btnMi"  Text="Mi"  Grid.Row="6" Grid.Column="4" BackgroundColor="Gray" TextColor="White" FontSize="Micro" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
-            <Button x:Name="btnFa"  Text="Fá"  Grid.Row="6" Grid.Column="5" BackgroundColor="Gray"  TextColor="White" FontSize="Micro" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
-            <Button x:Name="btnSol" Text="Sol" Grid.ColumnSpan="2" Grid.Row="6" Grid.Column="2" BackgroundColor="Gray"  TextColor="White" FontSize="Micro" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
-            <Button x:Name="btnLa"  Text="Lá"  Grid.Row="7"  Grid.Column="4" BackgroundColor="Gray"  TextColor="White" FontSize="Micro" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
-            <Button x:Name="btnSi"   Text="Sí"  Grid.Row="7" Grid.Column="5" BackgroundColor="Gray"  TextColor="White" FontSize="Micro" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
+            <Grid x:Name="controlGrid2" RowSpacing="1" ColumnSpacing="1" Grid.Row="4" Grid.ColumnSpan="6">
+                <Grid.RowDefinitions>
+                    <!--Botão 1 para escolher-->
+                    <RowDefinition Height="35" />
+                    <!--Botão 2 para escolher-->
+                    <RowDefinition Height="35" />
+                    <!--Botão 3 para escolher-->
+                    <RowDefinition Height="35" />
+                    <!--Botão 4 para escolher-->
+                    <RowDefinition Height="35" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnDo"  Text="Dó"  Grid.Row="0" Grid.Column="2"  BackgroundColor="Gray" TextColor="White" FontSize="Micro" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked" IsVisible="true"></Button>
+                <Button x:Name="btnRe"  Text="Ré"  Grid.Row="0" Grid.Column="3" BackgroundColor="Gray" TextColor="White" FontSize="Micro" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked" ></Button>
+                <Button x:Name="btnMi"  Text="Mi"  Grid.Row="0" Grid.Column="4" BackgroundColor="Gray" TextColor="White" FontSize="Micro" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
+                <Button x:Name="btnFa"  Text="Fá"  Grid.Row="0" Grid.Column="5" BackgroundColor="Gray"  TextColor="White" FontSize="Micro" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
+                <Button x:Name="btnSol" Text="Sol" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="2" BackgroundColor="Gray"  TextColor="White" FontSize="Micro" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
+                <Button x:Name="btnLa"  Text="Lá"  Grid.Row="1"  Grid.Column="4" BackgroundColor="Gray"  TextColor="White" FontSize="Micro" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
+                <Button x:Name="btnSi"   Text="Sí"  Grid.Row="1" Grid.Column="5" BackgroundColor="Gray"  TextColor="White" FontSize="Micro" CornerRadius="15" FontFamily="Comic Sans MS" Clicked="btnButton_Clicked"></Button>
+            </Grid>
+            
             <StackLayout x:Name="stcResult" Orientation="Vertical"  Grid.Row="13" Grid.ColumnSpan="6" BackgroundColor="White" Grid.RowSpan="2">
                 <Label x:Name="lblResultado" Text="" FontFamily="Comic Sans MS" TextColor="White" FontSize="Large"  HorizontalTextAlignment="Center"></Label>
                 <Button x:Name="btnButton5" Text="Verificar"  BackgroundColor="LightBlue" TextColor="White" FontSize="Large" CornerRadius="15" VerticalOptions="End" Clicked="btnButton5_Clicked"></Button>
