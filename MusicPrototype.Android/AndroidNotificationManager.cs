@@ -33,6 +33,9 @@ namespace MusicPrototype.Droid
 
         public int ScheduleNotification(string title, string message)
         {
+            // Instantiate the Big Text style:
+            NotificationCompat.BigTextStyle textStyle = new NotificationCompat.BigTextStyle();
+
             if (!channelInitialized)
             {
                 CreateNotificationChannel();
@@ -46,13 +49,16 @@ namespace MusicPrototype.Droid
 
             PendingIntent pendingIntent = PendingIntent.GetActivity(AndroidApp.Context, pendingIntentId, intent, PendingIntentFlags.OneShot);
 
+            textStyle.BigText(message);
+
             NotificationCompat.Builder builder = new NotificationCompat.Builder(AndroidApp.Context, channelId)
                 .SetContentIntent(pendingIntent)
                 .SetContentTitle(title)
                 .SetContentText(message)
                 .SetLargeIcon(BitmapFactory.DecodeResource(AndroidApp.Context.Resources, Resource.Drawable.xamarin_logo))
-                .SetSmallIcon(Resource.Drawable.xamarin_logo)
-                .SetDefaults((int)NotificationDefaults.Sound | (int)NotificationDefaults.Vibrate);
+                .SetSmallIcon(Resource.Drawable.navigation_empty_icon)
+                .SetDefaults((int)NotificationDefaults.Sound | (int)NotificationDefaults.Vibrate)
+                .SetStyle(textStyle);
 
             Notification notification = builder.Build();
             manager.Notify(messageId, notification);
@@ -82,6 +88,9 @@ namespace MusicPrototype.Droid
                     Description = channelDescription
                 };
                 manager.CreateNotificationChannel(channel);
+            }
+            else{
+                return;
             }
 
             channelInitialized = true;

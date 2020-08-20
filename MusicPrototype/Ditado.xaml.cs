@@ -13,6 +13,7 @@ namespace MusicPrototype
 {
     public partial class Ditado : ContentPage
     {
+        float touchRange = 10;
         int xValue = 70;
         int yValue = 50;
         int constantIncrement = 150;
@@ -285,7 +286,7 @@ namespace MusicPrototype
 
                         foreach (var item in InvisiblebitmapCollection)
                         {
-                            if (new Point(bitmap.Matrix.TransX, bitmap.Matrix.TransY).Distance(new Point(item.Matrix.TransX, item.Matrix.TransY)) < 10)
+                            if (new Point(bitmap.Matrix.TransX, bitmap.Matrix.TransY).Distance(new Point(item.Matrix.TransX, item.Matrix.TransY)) < 30)
                             {
                                 InvisiblebitmapCollection.Remove(item);
                                 VisiblebitmapCollection.Add(item);
