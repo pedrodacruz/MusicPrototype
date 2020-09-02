@@ -233,6 +233,11 @@ namespace MusicPrototype
                 new SKPoint((float)(canvasView.CanvasSize.Width * pt.X / canvasView.Width),
                             (float)(canvasView.CanvasSize.Height * pt.Y / canvasView.Height));
 
+            SKPoint offsetpoint =
+new SKPoint((float)(canvasView.CanvasSize.Width * pt.X / canvasView.Width),
+(float)((canvasView.CanvasSize.Height * pt.Y / canvasView.Height)+30));
+
+
             switch (args.Type)
             {
                 case TouchActionType.Pressed:
@@ -248,7 +253,8 @@ namespace MusicPrototype
 
                             // Do the touch processing
                             bitmapDictionary.Add(args.Id, bitmap);
-                            bitmap.ProcessTouchEvent(args.Id, args.Type, point);
+
+                            bitmap.ProcessTouchEvent(args.Id, args.Type, offsetpoint);
                             canvasView.InvalidateSurface();
                             break;
                         }
