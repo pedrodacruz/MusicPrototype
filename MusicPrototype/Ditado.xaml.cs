@@ -40,6 +40,10 @@ namespace MusicPrototype
         List<TouchManipulationBitmap> VisiblebitmapCollection = new List<TouchManipulationBitmap>();
 
         Dictionary<long, TouchManipulationBitmap> bitmapDictionary = new Dictionary<long, TouchManipulationBitmap>();
+
+        Assembly assembly;
+        SKBitmap bitmaptEST;
+
         int numeroFase = 0;
         public Ditado(int numeroFase)
         {
@@ -67,6 +71,9 @@ namespace MusicPrototype
             {
                 progressLesson.Progress = (0.25 * (Singleton.Instance.dadosJogador.ProgressoFase[this.numeroFase]));
             }
+
+            assembly = GetType().GetTypeInfo().Assembly;
+            bitmaptEST = SKBitmap.Decode(assembly.GetManifestResourceStream(resourceBarraHorizontal));
         }
 
         private void CarregaBarras()
@@ -233,10 +240,9 @@ namespace MusicPrototype
                 new SKPoint((float)(canvasView.CanvasSize.Width * pt.X / canvasView.Width),
                             (float)(canvasView.CanvasSize.Height * pt.Y / canvasView.Height));
 
-            SKPoint offsetpoint =
-new SKPoint((float)(canvasView.CanvasSize.Width * pt.X / canvasView.Width),
-(float)((canvasView.CanvasSize.Height * pt.Y / canvasView.Height)+30));
-
+                    SKPoint offsetpoint =
+                new SKPoint((float)(canvasView.CanvasSize.Width * pt.X / canvasView.Width),
+                (float)((canvasView.CanvasSize.Height * pt.Y / canvasView.Height)+100));
 
             switch (args.Type)
             {
@@ -244,19 +250,25 @@ new SKPoint((float)(canvasView.CanvasSize.Width * pt.X / canvasView.Width),
                     for (int i = bitmapCollection.Count - 1; i >= 0; i--)
                     {
                         TouchManipulationBitmap bitmap = bitmapCollection[i];
-
-                        if (bitmap.HitTest(point))
+                        //350, 179,
+                        SKRect rect = new SKRect(0,0, (float)bitmaptEST.Width+100, (float)bitmaptEST.Height+100);
+                        rect.Offset(300, 129);
+                        // Determine if the touch was within that rectangle
+                        if (rect.Contains(point))
                         {
-                            // Move bitmap to end of collection
-                            bitmapCollection.Remove(bitmap);
-                            bitmapCollection.Add(bitmap);
+                            //if (bitmap.HitTest(point))
+                            //{
+                                // Move bitmap to end of collection
+                                bitmapCollection.Remove(bitmap);
+                                bitmapCollection.Add(bitmap);
 
-                            // Do the touch processing
-                            bitmapDictionary.Add(args.Id, bitmap);
+                                // Do the touch processing
+                                bitmapDictionary.Add(args.Id, bitmap);
 
-                            bitmap.ProcessTouchEvent(args.Id, args.Type, offsetpoint);
-                            canvasView.InvalidateSurface();
-                            break;
+                                bitmap.ProcessTouchEvent(args.Id, args.Type, offsetpoint);
+                                canvasView.InvalidateSurface();
+                                break;
+                            //}
                         }
                     }
                     //testa barras posicionadas
